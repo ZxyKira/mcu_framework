@@ -30,8 +30,8 @@ typedef void (*fw_usart_event_onSendByte)		(fw_usart_handle_t *handle, uint8_t b
  *    Struct - fw_usart_handle_t
  */ 
 typedef struct _fw_usart_handle_t{
-	void* pMemory;
-	fw_usart_api_t *pAPI;
+	void* memory;
+	fw_usart_api_t *API;
 }fw_usart_handle_t;
  
 /* *****************************************************************************************

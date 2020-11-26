@@ -30,8 +30,8 @@ typedef void (*fw_spim_event_onXferByte)(fw_spim_handle_t *handle);
  *    Struct - fw_usart_handle_t
  */ 
 typedef struct _fw_spim_handle_t{
-	void* pMemory;
-	fw_spim_api_t *pAPI;
+	void* memory;
+	fw_spim_api_t *API;
 }fw_spim_handle_t;
 
 /* *****************************************************************************************

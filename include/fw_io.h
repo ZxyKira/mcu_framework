@@ -23,7 +23,7 @@ typedef struct _fw_io_api_t fw_io_api_t;
  */ 
 typedef struct _fw_io_handle_t{
 	void* memory;
-	fw_io_api_t *API;
+	const fw_io_api_t *API;
 }fw_io_handle_t;
 
 /* *****************************************************************************************

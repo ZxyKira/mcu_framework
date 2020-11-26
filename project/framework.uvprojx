@@ -404,6 +404,11 @@
               <FileType>5</FileType>
               <FilePath>..\include\fw_usart.h</FilePath>
             </File>
+            <File>
+              <FileName>fw_chip.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\include\fw_chip.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

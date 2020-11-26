@@ -37,7 +37,7 @@ typedef struct _fw_io_api_t{
   void		  					(*dir)			(fw_io_handle_t* handle, const uint16_t port, const uint32_t val);
   void 		  					(*dirClear)	(fw_io_handle_t* handle, const uint16_t port, const uint32_t mask);
   void 								(*dirSet)		(fw_io_handle_t* handle, const uint16_t port, const uint32_t mask);
-	fw_io_pin_handle_t  (*ioPin)		(fw_io_handle_t* handle, const uint16_t port, const uint32_t mask);
+	fw_io_pin_handle_t  (*getIoPin)	(fw_io_handle_t* handle, const uint16_t port, const uint32_t mask);
 }fw_io_api_t;
 
 #ifdef __cplusplus

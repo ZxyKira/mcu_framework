@@ -22,6 +22,7 @@ typedef struct _fw_io_pin_api_t fw_io_pin_api_t;
  */ 
 typedef struct _fw_io_pin_handle_t{
 	void* memory;
+	void* base;
 	const fw_io_pin_api_t* API;
 }fw_io_pin_handle_t;
 

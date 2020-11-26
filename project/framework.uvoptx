@@ -202,8 +202,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\include\fw_io_entity.h</PathWithFileName>
-      <FilenameWithoutPath>fw_io_entity.h</FilenameWithoutPath>
+      <PathWithFileName>..\include\fw_io_pin.h</PathWithFileName>
+      <FilenameWithoutPath>fw_io_pin.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -214,8 +214,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\include\fw_spi.h</PathWithFileName>
-      <FilenameWithoutPath>fw_spi.h</FilenameWithoutPath>
+      <PathWithFileName>..\include\fw_spim.h</PathWithFileName>
+      <FilenameWithoutPath>fw_spim.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -226,32 +226,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\include\fw_spi_entity.h</PathWithFileName>
-      <FilenameWithoutPath>fw_spi_entity.h</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>2</GroupNumber>
-      <FileNumber>5</FileNumber>
-      <FileType>5</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
       <PathWithFileName>..\include\fw_usart.h</PathWithFileName>
       <FilenameWithoutPath>fw_usart.h</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>2</GroupNumber>
-      <FileNumber>6</FileNumber>
-      <FileType>5</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\include\fw_usart_entity.h</PathWithFileName>
-      <FilenameWithoutPath>fw_usart_entity.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

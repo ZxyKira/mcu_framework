@@ -1,57 +1,59 @@
-/*-----------------------------------------------------------------------------------------
+/* *****************************************************************************************
  *    File Name   :fw_usart.h
  *    Version     :V1.0.0
  *    Create Date :2020-08-13
- *    Modufy Date :2020-10/07
+ *    Modufy Date :2020-11-25
  *    Information :
  */
+
 #ifndef fw_usart_H_
 #define fw_usart_H_
-#include "fw_io.h"
 
-#include "fw_usart_entity.h"
+#include "stdint.h"
+#include "stdbool.h"
 
 #ifdef __cplusplus
 extern "C"{
 #endif //__cplusplus
-
-/*-----------------------------------------------------------------------------------------
- *    Type/Structure
- */ 
-typedef struct _fw_usart_api_t{
 	
-  /*! @name   fw_usart_api_t.init
-   *  @brief  Initialized UART.
-   *  @param  hwBase   : MCU Hardware base address.
-   *  @param  hwMemory : MCU Hardware handle memory pointer.
-   *  @return success  : fw_usart_base_t
-   */	
-  bool    (*init)         (uint8_t ch);
-	
-  /*! @name   fw_usart_api_t.deinit
-   *  @brief  Initialized UART.
-   *  @param  hwBase   : MCU Hardware base address.
-   *  @param  hwMemory : MCU Hardware handle memory pointer.
-   *  @return success  : fw_usart_base_t
-   */	
-  void              (*deinit)       (uint8_t ch);
-  fw_usart_entity_t  (*getEntity)    (uint8_t ch);
-  bool              (*reciver)      (uint8_t ch, fw_usart_xfer_t *xfer);
-  bool              (*send)         (uint8_t ch, fw_usart_xfer_t *xfer);
-  void              (*abortReceive) (uint8_t ch);
-  void              (*abortSend)    (uint8_t ch);
-  //--------Setting--------
-  struct{
-    bool  (*setBaudrate)(uint8_t ch, uint32_t baudrate);
-		void  (*ringBufferEnable)(uint8_t ch, void* buffer, uint32_t size);
-		void  (*ringBufferDisable)(uint8_t ch);
-		
-  }Setting;
-}fw_usart_api_t;
+typedef struct _fw_usart_api_t fw_usart_api_t;
+typedef struct _fw_usart_handle_t fw_usart_handle_t;
 
-/*-----------------------------------------------------------------------------------------
+/* *****************************************************************************************
  *    Function
  */ 
+typedef void (*fw_usart_event_onReceiver)		(fw_usart_handle_t *handle);
+typedef void (*fw_usart_event_onSendFinish)	(fw_usart_handle_t *handle, const void* pData, uint32_t len);
+typedef void (*fw_usart_event_onSendByte)		(fw_usart_handle_t *handle, uint8_t byte);
+
+/* *****************************************************************************************
+ *    Struct - fw_usart_handle_t
+ */ 
+typedef struct _fw_usart_handle_t{
+	void* pMemory;
+	fw_usart_api_t *pAPI;
+}fw_usart_handle_t;
+ 
+/* *****************************************************************************************
+ *    Struct - fw_usart_api_t
+ */ 
+typedef struct _fw_usart_api_t{
+	void      (*beginReciver)		(fw_usart_handle_t *handle);
+	void      (*abortReciver)		(fw_usart_handle_t *handle);
+  bool      (*send)						(fw_usart_handle_t *handle, const void* pData, uint32_t len);
+	uint8_t   (*read)						(fw_usart_handle_t *handle);
+	uint32_t  (*readMulti)			(fw_usart_handle_t *handle, void* pData, uint32_t len);
+  bool      (*setBaudrate)    (fw_usart_handle_t *handle, uint32_t baudrate);
+	bool      (*isEmpty)        (fw_usart_handle_t *handle);
+	bool      (*isBusy)         (fw_usart_handle_t *handle);
+	
+  // --------Event--------
+  struct{
+		void (*setOnReceiver)		(fw_usart_handle_t *handle, fw_usart_event_onReceiver event);
+		void (*setOnSendFinish)	(fw_usart_handle_t *handle, fw_usart_event_onSendFinish event);
+		void (*setOnSendByte)		(fw_usart_handle_t *handle, fw_usart_event_onSendByte event);
+  }Event;
+}fw_usart_api_t;
 
 #ifdef __cplusplus
 }

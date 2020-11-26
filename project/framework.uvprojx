@@ -390,29 +390,19 @@
               <FilePath>..\include\fw_io.h</FilePath>
             </File>
             <File>
-              <FileName>fw_io_entity.h</FileName>
+              <FileName>fw_io_pin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_io_entity.h</FilePath>
+              <FilePath>..\include\fw_io_pin.h</FilePath>
             </File>
             <File>
-              <FileName>fw_spi.h</FileName>
+              <FileName>fw_spim.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_spi.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_spi_entity.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_spi_entity.h</FilePath>
+              <FilePath>..\include\fw_spim.h</FilePath>
             </File>
             <File>
               <FileName>fw_usart.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\include\fw_usart.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_usart_entity.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_usart_entity.h</FilePath>
             </File>
           </Files>
         </Group>

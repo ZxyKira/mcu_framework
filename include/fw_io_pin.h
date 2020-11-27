@@ -30,15 +30,15 @@ typedef struct _fw_io_pin_handle_t{
  *    Struct - fw_io_pin_api_t
  */ 
 typedef struct _fw_io_pin_api_t{
-  void (*setValue)	(fw_io_pin_handle_t* pHandle, bool val);
-  void (*setHigh)		(fw_io_pin_handle_t* pHandle);
-  void (*setLow)		(fw_io_pin_handle_t* pHandle);
-  void (*setToggle)	(fw_io_pin_handle_t* pHandle);  
-  void (*setDir)		(fw_io_pin_handle_t* pHandle, bool dir);
-  void (*setInput)	(fw_io_pin_handle_t* pHandle);
-  void (*setOutput)	(fw_io_pin_handle_t* pHandle);
-  bool (*getValue)	(fw_io_pin_handle_t* pHandle);
-  bool (*getDir)		(fw_io_pin_handle_t* pHandle);
+  void (*setValue)	(fw_io_pin_handle_t handle, bool val);
+  void (*setHigh)		(fw_io_pin_handle_t handle);
+  void (*setLow)		(fw_io_pin_handle_t handle);
+  void (*setToggle)	(fw_io_pin_handle_t handle);  
+  void (*setDir)		(fw_io_pin_handle_t handle, bool dir);
+  void (*setInput)	(fw_io_pin_handle_t handle);
+  void (*setOutput)	(fw_io_pin_handle_t handle);
+  bool (*getValue)	(fw_io_pin_handle_t handle);
+  bool (*getDir)		(fw_io_pin_handle_t handle);
 }fw_io_pin_api_t;
 
 #ifdef __cplusplus

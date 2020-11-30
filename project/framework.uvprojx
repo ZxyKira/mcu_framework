@@ -385,6 +385,11 @@
           <GroupName>include</GroupName>
           <Files>
             <File>
+              <FileName>fw_chip.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\include\fw_chip.h</FilePath>
+            </File>
+            <File>
               <FileName>fw_io.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\include\fw_io.h</FilePath>
@@ -400,14 +405,14 @@
               <FilePath>..\include\fw_spim.h</FilePath>
             </File>
             <File>
+              <FileName>fw_spim_entity.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\include\fw_spim_entity.h</FilePath>
+            </File>
+            <File>
               <FileName>fw_usart.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\include\fw_usart.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_chip.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_chip.h</FilePath>
             </File>
           </Files>
         </Group>

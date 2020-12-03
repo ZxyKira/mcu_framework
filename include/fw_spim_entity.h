@@ -41,19 +41,19 @@ typedef struct _fw_spim_entity_handle_t{
 typedef struct _fw_spim_entity_api_t{
   bool (*xfer)              (fw_spim_entity_handle_t handle, fw_spim_entity_xfer_t *xfer);
   bool (*isBusy)            (fw_spim_entity_handle_t handle);
-  void (*setCpha)            (fw_spim_entity_handle_t handle, bool enable);
-  void (*setCpol)            (fw_spim_entity_handle_t handle, bool enable);
-  void (*setLsb)             (fw_spim_entity_handle_t handle, bool enable);
-  void (*setLoop)            (fw_spim_entity_handle_t handle, bool enable);  
-  void (*setPreDelay)        (fw_spim_entity_handle_t handle, uint8_t val);
+  void (*setCpha)           (fw_spim_entity_handle_t handle, bool enable);
+  void (*setCpol)           (fw_spim_entity_handle_t handle, bool enable);
+  void (*setLsb)            (fw_spim_entity_handle_t handle, bool enable);
+  void (*setLoop)           (fw_spim_entity_handle_t handle, bool enable);  
+  void (*setPreDelay)       (fw_spim_entity_handle_t handle, uint8_t val);
   void (*setPostDelay)      (fw_spim_entity_handle_t handle, uint8_t val);  
-  void (*setFrameDelay)      (fw_spim_entity_handle_t handle, uint8_t val);  
+  void (*setFrameDelay)     (fw_spim_entity_handle_t handle, uint8_t val);  
   void (*setTransferDelay)  (fw_spim_entity_handle_t handle, uint8_t val);
-  bool (*setBaudrate)        (fw_spim_entity_handle_t handle, uint32_t baudrate);
+  bool (*setBaudrate)       (fw_spim_entity_handle_t handle, uint32_t baudrate);
   //--------Event--------
   struct{
     void (*setOnXferFinish) (fw_spim_entity_handle_t handle, fw_spim_entity_event_onXferFinish event);
-    void (*setOnXferByte)    (fw_spim_entity_handle_t handle, fw_spim_entity_event_onXferByte event);
+    void (*setOnXferByte)   (fw_spim_entity_handle_t handle, fw_spim_entity_event_onXferByte event);
   }Event;
 }fw_spim_entity_api_t;
 

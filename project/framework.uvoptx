@@ -214,8 +214,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\include\fw_io_pin.h</PathWithFileName>
-      <FilenameWithoutPath>fw_io_pin.h</FilenameWithoutPath>
+      <PathWithFileName>..\include\fw_io_entity.h</PathWithFileName>
+      <FilenameWithoutPath>fw_io_entity.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

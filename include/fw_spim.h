@@ -37,8 +37,8 @@ typedef struct _fw_spim_handle_t{
 typedef struct _fw_spim_api_t{
   bool                      (*init)        (fw_spim_handle_t handle);
   bool                      (*deinit)      (fw_spim_handle_t handle);
-  bool                       (*isBusy)      (fw_spim_handle_t handle);
-  fw_spim_entity_handle_t   (*getEntity)  (fw_spim_handle_t handle, uint32_t ssel);
+  bool                      (*isBusy)      (fw_spim_handle_t handle);
+  fw_spim_entity_handle_t   (*getEntity)   (fw_spim_handle_t handle, void* memory, uint32_t ssel);
   uint32_t                  (*getMaxSsel)  (fw_spim_handle_t handle);
 }fw_spim_api_t;
 

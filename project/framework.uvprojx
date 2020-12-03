@@ -395,9 +395,9 @@
               <FilePath>..\include\fw_io.h</FilePath>
             </File>
             <File>
-              <FileName>fw_io_pin.h</FileName>
+              <FileName>fw_io_entity.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_io_pin.h</FilePath>
+              <FilePath>..\include\fw_io_entity.h</FilePath>
             </File>
             <File>
               <FileName>fw_spim.h</FileName>

@@ -414,6 +414,16 @@
               <FileType>5</FileType>
               <FilePath>..\include\fw_usart.h</FilePath>
             </File>
+            <File>
+              <FileName>fw_ioint.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\include\fw_ioint.h</FilePath>
+            </File>
+            <File>
+              <FileName>fw_timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\include\fw_timer.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

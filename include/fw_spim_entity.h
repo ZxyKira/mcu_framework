@@ -31,7 +31,6 @@ typedef void (*fw_spim_entity_event_onXferByte)(fw_spim_entity_handle_t handle);
  */ 
 typedef struct _fw_spim_entity_handle_t{
   void* memory;
-  void* base;
   const fw_spim_entity_api_t *API;
 }fw_spim_entity_handle_t;
 

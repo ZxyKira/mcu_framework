@@ -10,7 +10,7 @@
     <aExt>*.s*; *.src; *.a*</aExt>
     <oExt>*.obj; *.o</oExt>
     <lExt>*.lib</lExt>
-    <tExt>*.txt; *.h; *.inc</tExt>
+    <tExt>*.txt; *.h; *.inc; *.md</tExt>
     <pExt>*.plm</pExt>
     <CppX>*.cpp</CppX>
     <nMigrate>0</nMigrate>
@@ -250,8 +250,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\include\fw_usart.h</PathWithFileName>
-      <FilenameWithoutPath>fw_usart.h</FilenameWithoutPath>
+      <PathWithFileName>..\include\fw_timer.h</PathWithFileName>
+      <FilenameWithoutPath>fw_timer.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -262,8 +262,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\include\fw_ioint.h</PathWithFileName>
-      <FilenameWithoutPath>fw_ioint.h</FilenameWithoutPath>
+      <PathWithFileName>..\include\fw_usart.h</PathWithFileName>
+      <FilenameWithoutPath>fw_usart.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -274,8 +274,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\include\fw_timer.h</PathWithFileName>
-      <FilenameWithoutPath>fw_timer.h</FilenameWithoutPath>
+      <PathWithFileName>..\include\fw_ioint.h</PathWithFileName>
+      <FilenameWithoutPath>fw_ioint.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

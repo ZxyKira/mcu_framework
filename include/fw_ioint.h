@@ -24,14 +24,14 @@ typedef struct _fw_ioint_handle_t{
 typedef struct _fw_ioint_api_t{
 	bool	(*init)    (fw_ioint_handle_t handle);
 	bool	(*deinit)  (fw_ioint_handle_t handle);
-	bool  (*edgeMode)(fw_ioint_handle_t handle, uint8_t ch, bool enable);
-	bool  (*enable)  (fw_ioint_handle_t handle, uint8_t ch, fw_pin_t pin);
-	bool  (*disable) (fw_ioint_handle_t handle, uint8_t);
+	bool  (*edgeMode)(fw_ioint_handle_t handle, bool enable);
+	bool  (*enable)  (fw_ioint_handle_t handle, fw_pin_t pin);
+	bool  (*disable) (fw_ioint_handle_t handle);
 
   // --------Event--------
   struct{
-    void (*setOnRise)  (fw_ioint_handle_t handle, uint8_t ch, fw_ioint_execute event, void* attachment);
-    void (*setOnFall)  (fw_ioint_handle_t handle, uint8_t ch, fw_ioint_execute event, void* attachment);
+    void (*setOnRise)  (fw_ioint_handle_t handle, fw_ioint_execute event, void* attachment);
+    void (*setOnFall)  (fw_ioint_handle_t handle, fw_ioint_execute event, void* attachment);
   }Event;
 }fw_ioint_api_t;
 

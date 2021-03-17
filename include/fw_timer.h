@@ -19,11 +19,14 @@ typedef struct _fw_timer_handle_t{
   const fw_timer_api_t *API;
 }fw_timer_handle_t;
 
+typedef void (*fw_timer_execute_t)(fw_timer_handle_t handle, void* attachment);
+
 typedef struct _fw_timer_api_t{
 	bool	(*init)          (fw_timer_handle_t handle);
 	bool	(*deinit)        (fw_timer_handle_t handle);
-	bool  (*startAtClock)  (fw_timer_handle_t handle);
-	bool  (*startAtTime)   (fw_timer_handle_t handle);
+	bool  (*set)           (fw_timer_handle_t handle, fw_timer_execute_t runnable, void* attachment); 
+	bool  (*startAtTick)   (fw_timer_handle_t handle, uint32_t tick);
+	bool  (*startAtTime)   (fw_timer_handle_t handle, uint32_t us);
 	bool  (*stop)          (fw_timer_handle_t handle);
 }fw_timer_api_t;
 

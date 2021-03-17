@@ -184,7 +184,6 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
-            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -351,7 +350,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <ClangAsOpt>4</ClangAsOpt>
+            <uClangAs>0</uClangAs>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -386,9 +385,14 @@
           <GroupName>include</GroupName>
           <Files>
             <File>
-              <FileName>fw_chip.h</FileName>
+              <FileName>fw_base.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_chip.h</FilePath>
+              <FilePath>..\include\fw_base.h</FilePath>
+            </File>
+            <File>
+              <FileName>fw_io_pin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\include\fw_io_pin.h</FilePath>
             </File>
             <File>
               <FileName>fw_io.h</FileName>
@@ -396,19 +400,9 @@
               <FilePath>..\include\fw_io.h</FilePath>
             </File>
             <File>
-              <FileName>fw_io_entity.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_io_entity.h</FilePath>
-            </File>
-            <File>
               <FileName>fw_spim.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\include\fw_spim.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_spim_entity.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_spim_entity.h</FilePath>
             </File>
             <File>
               <FileName>fw_timer.h</FileName>

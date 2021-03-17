@@ -190,8 +190,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\include\fw_chip.h</PathWithFileName>
-      <FilenameWithoutPath>fw_chip.h</FilenameWithoutPath>
+      <PathWithFileName>..\include\fw_base.h</PathWithFileName>
+      <FilenameWithoutPath>fw_base.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -202,8 +202,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\include\fw_io.h</PathWithFileName>
-      <FilenameWithoutPath>fw_io.h</FilenameWithoutPath>
+      <PathWithFileName>..\include\fw_io_pin.h</PathWithFileName>
+      <FilenameWithoutPath>fw_io_pin.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -214,8 +214,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\include\fw_io_entity.h</PathWithFileName>
-      <FilenameWithoutPath>fw_io_entity.h</FilenameWithoutPath>
+      <PathWithFileName>..\include\fw_io.h</PathWithFileName>
+      <FilenameWithoutPath>fw_io.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -238,18 +238,6 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\include\fw_spim_entity.h</PathWithFileName>
-      <FilenameWithoutPath>fw_spim_entity.h</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>2</GroupNumber>
-      <FileNumber>6</FileNumber>
-      <FileType>5</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
       <PathWithFileName>..\include\fw_timer.h</PathWithFileName>
       <FilenameWithoutPath>fw_timer.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
@@ -257,7 +245,7 @@
     </File>
     <File>
       <GroupNumber>2</GroupNumber>
-      <FileNumber>7</FileNumber>
+      <FileNumber>6</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -269,7 +257,7 @@
     </File>
     <File>
       <GroupNumber>2</GroupNumber>
-      <FileNumber>8</FileNumber>
+      <FileNumber>7</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>

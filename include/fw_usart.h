@@ -22,7 +22,7 @@ typedef struct _fw_usart_handle_t fw_usart_handle_t;
  *    Function Type
  */ 
 typedef void (*fw_usart_event_onReceiver)    (fw_usart_handle_t handle);
-typedef void (*fw_usart_event_onSendFinish)  (fw_usart_handle_t handle, const void* pData, uint32_t len);
+typedef void (*fw_usart_event_onSendFinish)  (fw_usart_handle_t handle, const void* data, uint32_t len);
 typedef void (*fw_usart_event_onSendByte)    (fw_usart_handle_t handle, uint8_t byte);
 
 /* *****************************************************************************************

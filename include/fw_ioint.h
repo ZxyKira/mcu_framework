@@ -10,15 +10,29 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include "fw_base.h"
 
-typedef struct _fw_inint_handle_t{
+typedef struct _fw_ioint_api_t fw_ioint_api_t;
 
-}fw_inint_handle_t;
+typedef void (*fw_ioint_execute)(void* userData);
 
+typedef struct _fw_ioint_handle_t{
+  void* memory;
+  const fw_ioint_api_t *API;
+}fw_ioint_handle_t;
 
 typedef struct _fw_ioint_api_t{
-	bool	(*init)(fw_inint_handle_t handle);
-	bool	(*deinit)(fw_inint_handle_t handle);
+	bool	(*init)    (fw_ioint_handle_t handle);
+	bool	(*deinit)  (fw_ioint_handle_t handle);
+	bool  (*edgeMode)(fw_ioint_handle_t handle, uint8_t ch, bool enable);
+	bool  (*enable)  (fw_ioint_handle_t handle, uint8_t ch, fw_pin_t pin);
+	bool  (*disable) (fw_ioint_handle_t handle, uint8_t);
+
+  // --------Event--------
+  struct{
+    void (*setOnRise)  (fw_ioint_handle_t handle, uint8_t ch, fw_ioint_execute event, void* attachment);
+    void (*setOnFall)  (fw_ioint_handle_t handle, uint8_t ch, fw_ioint_execute event, void* attachment);
+  }Event;
 }fw_ioint_api_t;
 
 

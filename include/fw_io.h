@@ -10,8 +10,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "fw_chip.h"
-#include "fw_io_entity.h"
+#include "fw_base.h"
+#include "fw_io_pin.h"
 
 #ifdef __cplusplus
 extern "C"{
@@ -34,18 +34,7 @@ typedef struct _fw_io_handle_t{
 /* *****************************************************************************************
  *    Struct - fw_io_pin_api_t
  */ 
-typedef struct _fw_io_pin_api_t{
-  void                   (*setValue)  (fw_io_handle_t handle, const fw_pin_t pin, bool val);
-  void                   (*setHigh)   (fw_io_handle_t handle, const fw_pin_t pin);
-  void                   (*setLow)    (fw_io_handle_t handle, const fw_pin_t pin);
-  void                   (*setToggle) (fw_io_handle_t handle, const fw_pin_t pin);  
-  void                   (*setDir)    (fw_io_handle_t handle, const fw_pin_t pin, bool dir);
-  void                   (*setInput)  (fw_io_handle_t handle, const fw_pin_t pin);
-  void                   (*setOutput) (fw_io_handle_t handle, const fw_pin_t pin);
-  bool                   (*getValue)  (fw_io_handle_t handle, const fw_pin_t pin);
-  bool                   (*getDir)    (fw_io_handle_t handle, const fw_pin_t pin);
-	fw_io_entity_handle_t  (*getEntity) (fw_io_handle_t handle, void* memory, const fw_pin_t pin);
-}fw_io_pin_api_t;
+
 
 /* *****************************************************************************************
  *    Struct - fw_io_api_t
@@ -53,14 +42,14 @@ typedef struct _fw_io_pin_api_t{
 typedef struct _fw_io_api_t{
   bool                   (*init)      (fw_io_handle_t handle);
   bool                   (*deinit)    (fw_io_handle_t handle);
-  uint32_t               (*read)      (fw_io_handle_t handle, const uint16_t port);
-  void                   (*set)       (fw_io_handle_t handle, const uint16_t port, const uint32_t mask);
-  void                   (*clear)     (fw_io_handle_t handle, const uint16_t port, const uint32_t mask);
-  void                   (*toggle)    (fw_io_handle_t handle, const uint16_t port, const uint32_t mask);
-  void                   (*dir)       (fw_io_handle_t handle, const uint16_t port, const uint32_t val);
-  void                   (*dirClear)  (fw_io_handle_t handle, const uint16_t port, const uint32_t mask);
-  void                   (*dirSet)    (fw_io_handle_t handle, const uint16_t port, const uint32_t mask);
-	fw_io_pin_api_t Pin;
+  uint32_t               (*read)      (fw_io_handle_t handle, uint16_t port);
+  void                   (*set)       (fw_io_handle_t handle, uint16_t port, uint32_t mask);
+  void                   (*clear)     (fw_io_handle_t handle, uint16_t port, uint32_t mask);
+  void                   (*toggle)    (fw_io_handle_t handle, uint16_t port, uint32_t mask);
+  void                   (*dir)       (fw_io_handle_t handle, uint16_t port, uint32_t val);
+  void                   (*dirClear)  (fw_io_handle_t handle, uint16_t port, uint32_t mask);
+  void                   (*dirSet)    (fw_io_handle_t handle, uint16_t port, uint32_t mask);
+	fw_io_pin_handle_t     (*getPin)    (fw_io_handle_t handle, uint16_t port, uint16_t pin);
 }fw_io_api_t;
 
 #ifdef __cplusplus

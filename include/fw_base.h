@@ -15,7 +15,7 @@ typedef union _fw_pin_t{
 	struct{
 		uint16_t pin  :5;
 		uint16_t port :11;
-	}Group;
+	}group;
 	uint16_t portPin;
 }fw_pin_t;
 

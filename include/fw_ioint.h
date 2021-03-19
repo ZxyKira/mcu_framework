@@ -22,17 +22,14 @@ typedef struct _fw_ioint_handle_t{
 }fw_ioint_handle_t;
 
 typedef struct _fw_ioint_api_t{
-	bool	(*init)    (fw_ioint_handle_t handle);
-	bool	(*deinit)  (fw_ioint_handle_t handle);
-	bool  (*edgeMode)(fw_ioint_handle_t handle, bool enable);
-	bool  (*enable)  (fw_ioint_handle_t handle, fw_pin_t pin);
-	bool  (*disable) (fw_ioint_handle_t handle);
-
-  // --------Event--------
-  struct{
-    void (*setOnRise)  (fw_ioint_handle_t handle, fw_ioint_execute event, void* attachment);
-    void (*setOnFall)  (fw_ioint_handle_t handle, fw_ioint_execute event, void* attachment);
-  }Event;
+	bool	(*init)        (fw_ioint_handle_t handle);
+	bool	(*deinit)      (fw_ioint_handle_t handle);
+	bool  (*edgeMode)    (fw_ioint_handle_t handle, bool enable);
+	bool  (*enableRise)  (fw_ioint_handle_t handle, fw_ioint_execute execute, void* attachment);
+	bool  (*enableFall)  (fw_ioint_handle_t handle, fw_ioint_execute execute, void* attachment);
+	bool  (*disableRise) (fw_ioint_handle_t handle);
+	bool  (*disableFall) (fw_ioint_handle_t handle);
+	bool  (*disableAll)  (fw_ioint_handle_t handle);
 }fw_ioint_api_t;
 
 

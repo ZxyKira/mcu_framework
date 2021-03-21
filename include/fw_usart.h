@@ -41,11 +41,11 @@ typedef struct _fw_usart_api_t{
   void      (*beginReciver)    (fw_usart_handle_t handle, fw_usart_execute_t execute, void* attachment);
   void      (*abortReciver)    (fw_usart_handle_t handle);
   bool      (*send)            (fw_usart_handle_t handle, const void* data, uint32_t len);
-  uint32_t  (*read)            (fw_usart_handle_t handle, void* pData, uint32_t len);
+	bool      (*sendByte)        (fw_usart_handle_t handle, uint8_t data);
+  uint32_t  (*read)            (fw_usart_handle_t handle, void* data, uint32_t len);
   uint8_t   (*readByte)        (fw_usart_handle_t handle);
 	uint32_t  (*getReadLength)   (fw_usart_handle_t handle);
   bool      (*setBaudrate)     (fw_usart_handle_t handle, uint32_t baudrate);
-  bool      (*isEmpty)         (fw_usart_handle_t handle);
   bool      (*isBusy)          (fw_usart_handle_t handle);
 }fw_usart_api_t;
 

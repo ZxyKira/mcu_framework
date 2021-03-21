@@ -19,6 +19,8 @@ typedef union _fw_pin_t{
 	uint16_t portPin;
 }fw_pin_t;
 
+#define fw_pin_define(x, y) {.group.port = x,	.group.pin = y}
+
 inline fw_pin_t fw_pin_init(uint16_t port, uint16_t pin){
 	fw_pin_t result = {
 		.group.port = port,

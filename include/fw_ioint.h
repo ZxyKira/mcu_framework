@@ -32,8 +32,8 @@ typedef void (*fw_ioint_execute_t)(fw_ioint_handle_t handle, void* attachment);
  *    Struct - fw_ioint_handle_t
  */ 
 typedef struct _fw_ioint_handle_t{
-  void* const memory;
-  const fw_ioint_api_t* const api;
+  void* memory;
+  const fw_ioint_api_t* api;
 }fw_ioint_handle_t;
 
 /* *****************************************************************************************

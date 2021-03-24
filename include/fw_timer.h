@@ -32,8 +32,8 @@ typedef void (*fw_timer_event_execute_t)(fw_timer_handle_t handle, void* attachm
  *    Struct - fw_timer_handle_t
  */ 
 typedef struct _fw_timer_handle_t{
-  void* const memory;
-  const fw_timer_api_t* const api;
+  void* memory;
+  const fw_timer_api_t* api;
 }fw_timer_handle_t; 
  
 /* *****************************************************************************************

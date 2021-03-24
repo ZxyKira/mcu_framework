@@ -31,8 +31,8 @@ typedef void (*fw_spim_event_xfer_t)(fw_spim_handle_t handle, fw_spim_xfer_t *xf
  *    Struct - fw_usart_handle_t
  */ 
 typedef struct _fw_spim_handle_t{
-  void* const memory;
-  const fw_spim_api_t* const api;
+  void* memory;
+  const fw_spim_api_t* api;
 }fw_spim_handle_t;
 
 /* *****************************************************************************************

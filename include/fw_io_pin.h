@@ -28,8 +28,8 @@ typedef struct _fw_io_pin_api_t fw_io_pin_api_t;
  *    Struct - fw_io_pin_handle_t
  */ 
 typedef struct _fw_io_pin_handle_t{
-  void* const memory;
-  const fw_io_pin_api_t* const api;
+  void* memory;
+  const fw_io_pin_api_t* api;
   const fw_pin_t pin;
 }fw_io_pin_handle_t;
 

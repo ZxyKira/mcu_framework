@@ -33,8 +33,8 @@ typedef void (*fw_usart_event_read_t)(fw_usart_handle_t* handle, fw_usart_read_t
  *    Struct - fw_usart_handle_t
  */ 
 typedef struct _fw_usart_handle_t{
-  void* const memory;
-  const fw_usart_api_t* const api;
+  void* memory;
+  const fw_usart_api_t* api;
 }fw_usart_handle_t;
 
 /* *****************************************************************************************

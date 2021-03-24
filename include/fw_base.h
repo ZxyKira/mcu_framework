@@ -31,6 +31,11 @@ typedef union _fw_pin_t{
   uint16_t portPin;
 }fw_pin_t;
 
+typedef struct _fw_memory_t{
+  void* ptr;
+	uint32_t size;
+}fw_memory_t;
+
 /* *****************************************************************************************
  *    Inline function
  */ 

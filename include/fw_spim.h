@@ -15,6 +15,8 @@ extern "C"{
 #include <stdint.h>
 #include <stdbool.h>
 
+#include "fw_base.h"
+
 /* *****************************************************************************************
  *    Type define list
  */ 
@@ -39,11 +41,9 @@ typedef struct _fw_spim_handle_t{
  *    Struct - fw_spim_xfer_t
  */ 
 typedef struct _fw_spim_xfer_t{
-  const void* tx;
-  void* rx;
-  uint32_t len;
-  uint32_t dummy;
-  uint32_t point;
+  fw_memory_t tx;
+	fw_memory_t rx;
+	uint32_t dummy;
 }fw_spim_xfer_t;
 
 /* *****************************************************************************************

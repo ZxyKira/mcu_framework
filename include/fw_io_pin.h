@@ -30,7 +30,7 @@ typedef struct _fw_io_pin_api_t fw_io_pin_api_t;
 typedef struct _fw_io_pin_handle_t{
   void* memory;
   const fw_io_pin_api_t* api;
-  const fw_pin_t pin;
+  fw_pin_t pin;
 }fw_io_pin_handle_t;
 
 /* *****************************************************************************************

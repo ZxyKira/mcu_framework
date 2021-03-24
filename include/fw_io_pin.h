@@ -1,20 +1,23 @@
 /* *****************************************************************************************
  *    File Name   :fw_io_pin.h
  *    Create Date :2020-08-12
- *    Modufy Date :2020-11-30
+ *    Modufy Date :2021-03-24
  *    Information :
  */
 #ifndef fw_io_pin_H_
 #define fw_io_pin_H_
 
-#include <stdint.h>
-#include <stdbool.h>
-#include "fw_base.h"
-
 #ifdef __cplusplus
 extern "C"{
 #endif //__cplusplus
 
+#include <stdint.h>
+#include <stdbool.h>
+#include "fw_base.h"
+
+/* *****************************************************************************************
+ *    Type define list
+ */ 
 typedef struct _fw_io_pin_api_t fw_io_pin_api_t;
 
 /* *****************************************************************************************
@@ -25,9 +28,9 @@ typedef struct _fw_io_pin_api_t fw_io_pin_api_t;
  *    Struct - fw_io_pin_handle_t
  */ 
 typedef struct _fw_io_pin_handle_t{
-  uint16_t port;
-	uint16_t pin;
-	const fw_io_pin_api_t* API;
+  void* const memory;
+  const fw_io_pin_api_t* const api;
+  const fw_pin_t pin;
 }fw_io_pin_handle_t;
 
 /* *****************************************************************************************

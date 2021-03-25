@@ -40,14 +40,14 @@ typedef struct _fw_ioint_handle_t{
  *    Struct - fw_ioint_api_t
  */ 
 typedef struct _fw_ioint_api_t{
-  bool  (*init)        (fw_ioint_handle_t handle);
-  bool  (*deinit)      (fw_ioint_handle_t handle);
-  bool  (*edgeMode)    (fw_ioint_handle_t handle, bool enable);
-  bool  (*enableRise)  (fw_ioint_handle_t handle, fw_ioint_execute_t execute, void* attachment);
-  bool  (*enableFall)  (fw_ioint_handle_t handle, fw_ioint_execute_t execute, void* attachment);
-  bool  (*disableRise) (fw_ioint_handle_t handle);
-  bool  (*disableFall) (fw_ioint_handle_t handle);
-  bool  (*disableAll)  (fw_ioint_handle_t handle);
+  bool  (*init)        (fw_ioint_handle_t* handle);
+  bool  (*deinit)      (fw_ioint_handle_t* handle);
+  bool  (*edgeMode)    (fw_ioint_handle_t* handle, bool enable);
+  bool  (*enableRise)  (fw_ioint_handle_t* handle, fw_ioint_execute_t execute, void* attachment);
+  bool  (*enableFall)  (fw_ioint_handle_t* handle, fw_ioint_execute_t execute, void* attachment);
+  bool  (*disableRise) (fw_ioint_handle_t* handle);
+  bool  (*disableFall) (fw_ioint_handle_t* handle);
+  bool  (*disableAll)  (fw_ioint_handle_t* handle);
 }fw_ioint_api_t;
 
 #ifdef __cplusplus

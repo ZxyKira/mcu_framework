@@ -41,9 +41,9 @@ typedef struct _fw_spim_handle_t{
  *    Struct - fw_spim_xfer_t
  */ 
 typedef struct _fw_spim_xfer_t{
-  fw_memory_t tx;
-	fw_memory_t rx;
-	uint32_t dummy;
+  uint8_t *txData;      /*!< Send buffer */
+  uint8_t *rxData;      /*!< Receive buffer */
+  uint32_t dataSize;    /*!< Transfer bytes */
 }fw_spim_xfer_t;
 
 /* *****************************************************************************************

@@ -44,7 +44,6 @@ typedef struct _fw_spim_xfer_t{
   fw_memory_t tx;
 	fw_memory_t rx;
 	uint32_t dummy;
-	uint32_t clock;
 }fw_spim_xfer_t;
 
 /* *****************************************************************************************
@@ -63,6 +62,7 @@ typedef struct _fw_spim_api_t{
   bool (*setPostDelay)      (fw_spim_handle_t* handle, uint8_t val);
   bool (*setFrameDelay)     (fw_spim_handle_t* handle, uint8_t val);
   bool (*setTransferDelay)  (fw_spim_handle_t* handle, uint8_t val);
+	bool (*setBaudrate)       (fw_spim_handle_t* handle, uint32_t baudrate);
 }fw_spim_api_t;
 
 #ifdef __cplusplus

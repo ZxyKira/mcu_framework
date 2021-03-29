@@ -27,7 +27,7 @@ typedef struct _fw_spim_xfer_t fw_spim_xfer_t;
 /* *****************************************************************************************
  *    Function Type
  */ 
-typedef void (*fw_spim_event_xfer_t)(fw_spim_handle_t handle, fw_spim_xfer_t *xfer, void* attachment);
+typedef void (*fw_spim_event_xfer_t)(fw_spim_handle_t* handle, fw_spim_xfer_t *xfer, void* attachment);
 
 /* *****************************************************************************************
  *    Struct - fw_usart_handle_t

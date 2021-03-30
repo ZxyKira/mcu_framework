@@ -26,7 +26,7 @@ typedef struct _fw_timer_handle_t fw_timer_handle_t;
 /* *****************************************************************************************
  *    Function Type
  */ 
-typedef void (*fw_timer_event_execute_t)(fw_timer_handle_t handle, void* attachment);
+typedef void (*fw_timer_event_execute_t)(fw_timer_handle_t* handle, void* attachment);
 
 /* *****************************************************************************************
  *    Struct - fw_timer_handle_t

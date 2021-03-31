@@ -48,7 +48,7 @@ typedef struct _fw_io_api_t{
   void               (*dirClear) (fw_io_handle_t* handle, uint16_t port, uint32_t mask);
   void               (*dirSet)   (fw_io_handle_t* handle, uint16_t port, uint32_t mask);
   fw_io_pin_handle_t (*getPin)   (fw_io_handle_t* handle, uint16_t port, uint16_t pin);
-  fw_io_pin_handle_t (*getFwPin) (fw_io_handle_t* handle, fw_pin_t pin);
+  fw_io_pin_handle_t (*getFwPin) (fw_io_handle_t* handle, const fw_pin_t* pin);
 }fw_io_api_t;
 
 #ifdef __cplusplus

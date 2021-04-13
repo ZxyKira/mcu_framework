@@ -1,7 +1,7 @@
 /* *****************************************************************************************
  *    File Name   :fw_usart.h
  *    Create Date :2020-08-13
- *    Modufy Date :2021-03-24
+ *    Modufy Date :2021-04-14
  *    Information :
  */
 
@@ -41,15 +41,20 @@ typedef struct _fw_usart_handle_t{
  *    Struct - fw_usart_api_t
  */ 
 typedef struct _fw_usart_api_t{
-  bool  (*init)        (fw_usart_handle_t* handle);
-  bool  (*deinit)      (fw_usart_handle_t* handle);
-  bool  (*send)        (fw_usart_handle_t* handle, fw_memory_t* data, fw_usart_event_send_t execute, void* attachment);
-  bool  (*sendByte)    (fw_usart_handle_t* handle, uint8_t data);
-  bool  (*read)        (fw_usart_handle_t* handle, fw_memory_t* buffer, fw_usart_event_read_t execute, void* attachment);
-  bool  (*readByte)    (fw_usart_handle_t* handle, uint8_t* buffer);
-  bool  (*setBaudrate) (fw_usart_handle_t* handle, uint32_t baudrate);
-  bool  (*isSendBusy)  (fw_usart_handle_t* handle);
-  bool  (*isReadBusy)  (fw_usart_handle_t* handle);
+  bool  (*init)             (fw_usart_handle_t* handle);
+  bool  (*deinit)           (fw_usart_handle_t* handle);
+  bool  (*send)             (fw_usart_handle_t* handle, fw_memory_t* data, fw_usart_event_send_t execute, void* attachment);
+  bool  (*sendByte)         (fw_usart_handle_t* handle, uint8_t data);
+  bool  (*read)             (fw_usart_handle_t* handle, fw_memory_t* buffer, fw_usart_event_read_t execute, void* attachment);
+  bool  (*readByte)         (fw_usart_handle_t* handle, uint8_t* buffer);
+  bool  (*setBaudrate)      (fw_usart_handle_t* handle, uint32_t baudrate);
+  bool  (*isSendBusy)       (fw_usart_handle_t* handle);
+  bool  (*isReadBusy)       (fw_usart_handle_t* handle);
+
+	struct{
+		bool (*taskSchedulerEnable)   (fw_usart_handle_t* handle, void* schedulerMemory);
+		bool (*taskSchedulerDisable)  (fw_usart_handle_t* handle);
+	}support;
 }fw_usart_api_t;
 
 #ifdef __cplusplus

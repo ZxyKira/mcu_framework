@@ -1,7 +1,7 @@
 /* *****************************************************************************************
  *    File Name   :fw_spi.h
  *    Create Date :2020-08-13
- *    Modufy Date :2021-03-24
+ *    Modufy Date :2021-04-14
  *    Information :
  */
  
@@ -63,6 +63,11 @@ typedef struct _fw_spim_api_t{
   bool (*setFrameDelay)     (fw_spim_handle_t* handle, uint8_t val);
   bool (*setTransferDelay)  (fw_spim_handle_t* handle, uint8_t val);
 	bool (*setBaudrate)       (fw_spim_handle_t* handle, uint32_t baudrate);
+	
+	struct{
+		bool (*schedulerEnable)   (fw_spim_handle_t* handle, void* schedulerMemory);
+		bool (*schedulerDisable)  (fw_spim_handle_t* handle);
+	}support;
 }fw_spim_api_t;
 
 #ifdef __cplusplus

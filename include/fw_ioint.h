@@ -1,7 +1,7 @@
 /* *****************************************************************************************
  *    File Name   :fw_ioint.h
  *    Create Date :2021-03-16
- *    Modufy Date :2021-03-24
+ *    Modufy Date :2021-04-14
  *    Information :
  */
  
@@ -47,6 +47,11 @@ typedef struct _fw_ioint_api_t{
   bool  (*disableRise) (fw_ioint_handle_t* handle);
   bool  (*disableFall) (fw_ioint_handle_t* handle);
   bool  (*disableAll)  (fw_ioint_handle_t* handle);
+	
+	struct{
+		bool (*taskSchedulerEnable)   (fw_ioint_handle_t* handle, void* schedulerMemory);
+		bool (*taskSchedulerDisable)  (fw_ioint_handle_t* handle);
+	}support;
 }fw_ioint_api_t;
 
 #ifdef __cplusplus

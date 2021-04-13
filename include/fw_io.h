@@ -1,7 +1,7 @@
 /* *****************************************************************************************
  *    File Name   :fw_io.h
  *    Create Date :2020-08-12
- *    Modufy Date :2021-03-24
+ *    Modufy Date :2021-04-14
  *    Information :
  */
 #ifndef fw_io_H_
@@ -38,17 +38,17 @@ typedef struct _fw_io_handle_t{
  *    Struct - fw_io_api_t
  */ 
 typedef struct _fw_io_api_t{
-  bool               (*init)     (fw_io_handle_t* handle);
-  bool               (*deinit)   (fw_io_handle_t* handle);
-  uint32_t           (*read)     (fw_io_handle_t* handle, uint16_t port);
-  void               (*set)      (fw_io_handle_t* handle, uint16_t port, uint32_t mask);
-  void               (*clear)    (fw_io_handle_t* handle, uint16_t port, uint32_t mask);
-  void               (*toggle)   (fw_io_handle_t* handle, uint16_t port, uint32_t mask);
-  void               (*dir)      (fw_io_handle_t* handle, uint16_t port, uint32_t val);
-  void               (*dirClear) (fw_io_handle_t* handle, uint16_t port, uint32_t mask);
-  void               (*dirSet)   (fw_io_handle_t* handle, uint16_t port, uint32_t mask);
-  fw_io_pin_handle_t (*getPin)   (fw_io_handle_t* handle, uint16_t port, uint16_t pin);
-  fw_io_pin_handle_t (*getFwPin) (fw_io_handle_t* handle, const fw_pin_t* pin);
+  bool               (*init)     (fw_io_handle_t* _this);
+  bool               (*deinit)   (fw_io_handle_t* _this);
+  uint32_t           (*read)     (fw_io_handle_t* _this, uint16_t port);
+  void               (*set)      (fw_io_handle_t* _this, uint16_t port, uint32_t mask);
+  void               (*clear)    (fw_io_handle_t* _this, uint16_t port, uint32_t mask);
+  void               (*toggle)   (fw_io_handle_t* _this, uint16_t port, uint32_t mask);
+  void               (*dir)      (fw_io_handle_t* _this, uint16_t port, uint32_t val);
+  void               (*dirClear) (fw_io_handle_t* _this, uint16_t port, uint32_t mask);
+  void               (*dirSet)   (fw_io_handle_t* _this, uint16_t port, uint32_t mask);
+  fw_io_pin_handle_t (*getPin)   (fw_io_handle_t* _this, uint16_t port, uint16_t pin);
+  fw_io_pin_handle_t (*getFwPin) (fw_io_handle_t* _this, const fw_pin_t* pin);
 }fw_io_api_t;
 
 #ifdef __cplusplus

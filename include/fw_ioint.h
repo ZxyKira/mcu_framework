@@ -26,7 +26,7 @@ typedef struct _fw_ioint_handle_t fw_ioint_handle_t;
 /* *****************************************************************************************
  *    Function Type
  */ 
-typedef void (*fw_ioint_execute_t)(fw_ioint_handle_t* handle, void* attachment);
+typedef void (*fw_ioint_execute_t)(fw_ioint_handle_t* _this, void* attachment);
 
 /* *****************************************************************************************
  *    Struct - fw_ioint_handle_t
@@ -40,18 +40,18 @@ typedef struct _fw_ioint_handle_t{
  *    Struct - fw_ioint_api_t
  */ 
 typedef struct _fw_ioint_api_t{
-  bool  (*init)        (fw_ioint_handle_t* handle);
-  bool  (*deinit)      (fw_ioint_handle_t* handle);
-  bool  (*enableRise)  (fw_ioint_handle_t* handle, fw_ioint_execute_t execute, void* attachment);
-  bool  (*enableFall)  (fw_ioint_handle_t* handle, fw_ioint_execute_t execute, void* attachment);
-  bool  (*disableRise) (fw_ioint_handle_t* handle);
-  bool  (*disableFall) (fw_ioint_handle_t* handle);
-  bool  (*disableAll)  (fw_ioint_handle_t* handle);
-	
-	struct{
-		bool (*taskSchedulerEnable)   (fw_ioint_handle_t* handle, void* schedulerMemory);
-		bool (*taskSchedulerDisable)  (fw_ioint_handle_t* handle);
-	}support;
+  bool  (*init)        (fw_ioint_handle_t* _this);
+  bool  (*deinit)      (fw_ioint_handle_t* _this);
+  bool  (*enableRise)  (fw_ioint_handle_t* _this, fw_ioint_execute_t execute, void* attachment);
+  bool  (*enableFall)  (fw_ioint_handle_t* _this, fw_ioint_execute_t execute, void* attachment);
+  bool  (*disableRise) (fw_ioint_handle_t* _this);
+  bool  (*disableFall) (fw_ioint_handle_t* _this);
+  bool  (*disableAll)  (fw_ioint_handle_t* _this);
+  
+  struct{
+    bool (*taskSchedulerEnable)   (fw_ioint_handle_t* _this, void* schedulerMemory);
+    bool (*taskSchedulerDisable)  (fw_ioint_handle_t* _this);
+  }support;
 }fw_ioint_api_t;
 
 #ifdef __cplusplus

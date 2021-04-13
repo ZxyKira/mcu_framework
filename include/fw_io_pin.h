@@ -1,7 +1,7 @@
 /* *****************************************************************************************
  *    File Name   :fw_io_pin.h
  *    Create Date :2020-08-12
- *    Modufy Date :2021-03-24
+ *    Modufy Date :2021-04-14
  *    Information :
  */
 #ifndef fw_io_pin_H_
@@ -37,15 +37,15 @@ typedef struct _fw_io_pin_handle_t{
  *    Struct - fw_io_pin_api_t
  */ 
 typedef struct _fw_io_pin_api_t{
-  void (*setValue)  (fw_io_pin_handle_t* handle, bool val);
-  void (*setHigh)   (fw_io_pin_handle_t* handle);
-  void (*setLow)    (fw_io_pin_handle_t* handle);
-  void (*setToggle) (fw_io_pin_handle_t* handle);  
-  void (*setDir)    (fw_io_pin_handle_t* handle, bool dir);
-  void (*setInput)  (fw_io_pin_handle_t* handle);
-  void (*setOutput) (fw_io_pin_handle_t* handle);
-  bool (*getValue)  (fw_io_pin_handle_t* handle);
-  bool (*getDir)    (fw_io_pin_handle_t* handle);
+  void (*setValue)  (fw_io_pin_handle_t* _this, bool val);
+  void (*setHigh)   (fw_io_pin_handle_t* _this);
+  void (*setLow)    (fw_io_pin_handle_t* _this);
+  void (*setToggle) (fw_io_pin_handle_t* _this);  
+  void (*setDir)    (fw_io_pin_handle_t* _this, bool dir);
+  void (*setInput)  (fw_io_pin_handle_t* _this);
+  void (*setOutput) (fw_io_pin_handle_t* _this);
+  bool (*getValue)  (fw_io_pin_handle_t* _this);
+  bool (*getDir)    (fw_io_pin_handle_t* _this);
 }fw_io_pin_api_t;
 
 #ifdef __cplusplus

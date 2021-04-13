@@ -5,8 +5,8 @@
  *    Information :
  */
  
-#ifndef fw_timer_H
-#define fw_timer_H
+#ifndef fw_timer_H_
+#define fw_timer_H_
 
 #ifdef __cplusplus
 extern "C"{
@@ -26,7 +26,7 @@ typedef struct _fw_timer_handle_t fw_timer_handle_t;
 /* *****************************************************************************************
  *    Function Type
  */ 
-typedef void (*fw_timer_event_execute_t)(fw_timer_handle_t* handle, void* attachment);
+typedef void (*fw_timer_event_execute_t)(fw_timer_handle_t* _this, void* attachment);
 
 /* *****************************************************************************************
  *    Struct - fw_timer_handle_t
@@ -40,22 +40,22 @@ typedef struct _fw_timer_handle_t{
  *    Struct - fw_timer_api_t
  */ 
 typedef struct _fw_timer_api_t{
-  bool  (*init)             (fw_timer_handle_t* handle);
-  bool  (*deinit)           (fw_timer_handle_t* handle);
-  bool  (*startAtTick)      (fw_timer_handle_t* handle, uint32_t tick, fw_timer_event_execute_t execute, void* attachment);
-  bool  (*startAtTime)      (fw_timer_handle_t* handle, uint32_t us, fw_timer_event_execute_t execute, void* attachment);
-  bool  (*stop)             (fw_timer_handle_t* handle);
-	
-	struct{
-		bool (*taskSchedulerEnable)   (fw_timer_handle_t* handle, void* schedulerMemory);
-		bool (*taskSchedulerDisable)  (fw_timer_handle_t* handle);
-	}support;
+  bool  (*init)             (fw_timer_handle_t* _this);
+  bool  (*deinit)           (fw_timer_handle_t* _this);
+  bool  (*startAtTick)      (fw_timer_handle_t* _this, uint32_t tick, fw_timer_event_execute_t execute, void* attachment);
+  bool  (*startAtTime)      (fw_timer_handle_t* _this, uint32_t us, fw_timer_event_execute_t execute, void* attachment);
+  bool  (*stop)             (fw_timer_handle_t* _this);
+  
+  struct{
+    bool (*taskSchedulerEnable)   (fw_timer_handle_t* _this, void* schedulerMemory);
+    bool (*taskSchedulerDisable)  (fw_timer_handle_t* _this);
+  }support;
 }fw_timer_api_t;
 
 #ifdef __cplusplus
 }
 #endif //__cplusplus
-#endif
+#endif //fw_timer_H_
 /* *****************************************************************************************
  *    End of file
  */ 

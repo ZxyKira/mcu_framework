@@ -33,7 +33,7 @@ typedef union _fw_pin_t{
 
 typedef struct _fw_memory_t{
   void* ptr;
-	uint32_t size;
+  uint32_t size;
 }fw_memory_t;
 
 /* *****************************************************************************************

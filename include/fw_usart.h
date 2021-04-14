@@ -48,7 +48,7 @@ typedef struct _fw_usart_api_t{
   bool  (*read)             (fw_usart_handle_t* _this, fw_memory_t* buffer, fw_usart_event_read_t execute, void* attachment);
   bool  (*readByte)         (fw_usart_handle_t* _this, uint8_t* buffer);
   bool  (*abortSend)        (fw_usart_handle_t* _this);
-  bool  (*abortread)        (fw_usart_handle_t* _this);
+  bool  (*abortRead)        (fw_usart_handle_t* _this);
   bool  (*setBaudrate)      (fw_usart_handle_t* _this, uint32_t baudrate);
   bool  (*isSendBusy)       (fw_usart_handle_t* _this);
   bool  (*isReadBusy)       (fw_usart_handle_t* _this);

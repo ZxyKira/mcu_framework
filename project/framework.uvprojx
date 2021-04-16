@@ -421,9 +421,9 @@
               <FilePath>..\include\fw_ioint.h</FilePath>
             </File>
             <File>
-              <FileName>fw_i2c.h</FileName>
+              <FileName>fw_i2cm.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_i2c.h</FilePath>
+              <FilePath>..\include\fw_i2cm.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -54,10 +54,6 @@ typedef struct _fw_ioint_api_t{
       bool (*enable)   (fw_ioint_handle_t* _this, void* schedulerMemory);
       bool (*disable)  (fw_ioint_handle_t* _this);
     }taskScheduler;
-    struct{
-      bool (*enable)   (fw_ioint_handle_t* _this, void* buffer, uint32_t bufferSize);
-      bool (*disable)  (fw_ioint_handle_t* _this);
-    }fifo;
   }support;
 }fw_ioint_api_t;
 

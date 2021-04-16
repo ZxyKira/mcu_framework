@@ -59,7 +59,8 @@ typedef struct _fw_i2cm_api_t{
   bool  (*isEnable)    (fw_i2cm_handle_t* _this);
   bool  (*write)       (fw_i2cm_handle_t* _this, fw_i2cm_xfer_t* xfer, fw_i2cm_execute_t execute, void* attachment);
   bool  (*read)        (fw_i2cm_handle_t* _this, fw_i2cm_xfer_t* xfer, fw_i2cm_execute_t execute, void* attachment);
-  
+  bool  (*isBusy)      (fw_i2cm_handle_t* _this);
+	
   struct{
     struct{
       bool (*enable)   (fw_i2cm_handle_t* _this, void* schedulerMemory);

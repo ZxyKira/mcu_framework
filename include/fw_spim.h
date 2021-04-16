@@ -1,7 +1,7 @@
 /* *****************************************************************************************
  *    File Name   :fw_spi.h
  *    Create Date :2020-08-13
- *    Modufy Date :2021-04-14
+ *    Modufy Date :2021-04-16
  *    Information :
  */
  
@@ -52,6 +52,7 @@ typedef struct _fw_spim_xfer_t{
 typedef struct _fw_spim_api_t{
   bool (*init)              (fw_spim_handle_t* _this);
   bool (*deinit)            (fw_spim_handle_t* _this);  
+  bool (*isEnable)          (fw_spim_handle_t* _this);
   bool (*isBusy)            (fw_spim_handle_t* _this);
   bool (*xfer)              (fw_spim_handle_t* _this, fw_spim_xfer_t *xfer, fw_spim_event_xfer_t execute, void* attachment);
   bool (*setCpha)           (fw_spim_handle_t* _this, bool enable);
@@ -65,8 +66,14 @@ typedef struct _fw_spim_api_t{
   bool (*setBaudrate)       (fw_spim_handle_t* _this, uint32_t baudrate);
   
   struct{
-    bool (*schedulerEnable)   (fw_spim_handle_t* _this, void* schedulerMemory);
-    bool (*schedulerDisable)  (fw_spim_handle_t* _this);
+    struct{
+      bool (*enable)   (fw_spim_handle_t* _this, void* schedulerMemory);
+      bool (*disable)  (fw_spim_handle_t* _this);
+    }taskScheduler;
+    struct{
+      bool (*enable)   (fw_spim_handle_t* _this, void* buffer, uint32_t bufferSize);
+      bool (*disable)  (fw_spim_handle_t* _this);
+    }fifo;
   }support;
 }fw_spim_api_t;
 

@@ -1,7 +1,7 @@
 /* *****************************************************************************************
  *    File Name   :fw_io.h
  *    Create Date :2020-08-12
- *    Modufy Date :2021-04-14
+ *    Modufy Date :2021-04-16
  *    Information :
  */
 #ifndef fw_io_H_
@@ -40,6 +40,7 @@ typedef struct _fw_io_handle_t{
 typedef struct _fw_io_api_t{
   bool               (*init)     (fw_io_handle_t* _this);
   bool               (*deinit)   (fw_io_handle_t* _this);
+  bool               (*isEnable) (fw_io_handle_t* _this);
   uint32_t           (*read)     (fw_io_handle_t* _this, uint16_t port);
   void               (*set)      (fw_io_handle_t* _this, uint16_t port, uint32_t mask);
   void               (*clear)    (fw_io_handle_t* _this, uint16_t port, uint32_t mask);

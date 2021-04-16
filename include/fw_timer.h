@@ -1,7 +1,7 @@
 /* *****************************************************************************************
  *    File Name   :fw_timer.h
  *    Create Date :2021-03-16
- *    Modufy Date :2021-04-14
+ *    Modufy Date :2021-04-16
  *    Information :
  */
  
@@ -42,13 +42,20 @@ typedef struct _fw_timer_handle_t{
 typedef struct _fw_timer_api_t{
   bool  (*init)             (fw_timer_handle_t* _this);
   bool  (*deinit)           (fw_timer_handle_t* _this);
+  bool  (*isEnable)         (fw_timer_handle_t* _this);
   bool  (*startAtTick)      (fw_timer_handle_t* _this, uint32_t tick, fw_timer_event_execute_t execute, void* attachment);
   bool  (*startAtTime)      (fw_timer_handle_t* _this, uint32_t us, fw_timer_event_execute_t execute, void* attachment);
   bool  (*stop)             (fw_timer_handle_t* _this);
   
   struct{
-    bool (*taskSchedulerEnable)   (fw_timer_handle_t* _this, void* schedulerMemory);
-    bool (*taskSchedulerDisable)  (fw_timer_handle_t* _this);
+    struct{
+      bool (*enable)   (fw_timer_handle_t* _this, void* schedulerMemory);
+      bool (*disable)  (fw_timer_handle_t* _this);
+    }taskScheduler;
+    struct{
+      bool (*enable)   (fw_timer_handle_t* _this, void* buffer, uint32_t bufferSize);
+      bool (*disable)  (fw_timer_handle_t* _this);
+    }fifo;
   }support;
 }fw_timer_api_t;
 

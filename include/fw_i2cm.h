@@ -28,7 +28,7 @@ typedef struct _fw_i2cm_xfer_t fw_i2cm_xfer_t;
 /* *****************************************************************************************
  *    Function Type
  */ 
-typedef void (*fw_ioint_execute_t)(fw_i2cm_handle_t* _this, fw_i2cm_status_t status, fw_i2cm_xfer_t* xfer ,void* attachment);
+typedef void (*fw_i2cm_execute_t)(fw_i2cm_handle_t* _this, fw_i2cm_status_t status, fw_i2cm_xfer_t* xfer ,void* attachment);
 
 /* *****************************************************************************************
  *    Struct - fw_ioint_handle_t
@@ -57,8 +57,8 @@ typedef struct _fw_i2cm_api_t{
   bool  (*init)        (fw_i2cm_handle_t* _this);
   bool  (*deinit)      (fw_i2cm_handle_t* _this);
   bool  (*isEnable)    (fw_i2cm_handle_t* _this);
-  bool  (*write)       (fw_i2cm_handle_t* _this, fw_i2cm_xfer_t* xfer, fw_ioint_execute_t execute, void* attachment);
-  bool  (*read)        (fw_i2cm_handle_t* _this, fw_i2cm_xfer_t* xfer, fw_ioint_execute_t execute, void* attachment);
+  bool  (*write)       (fw_i2cm_handle_t* _this, fw_i2cm_xfer_t* xfer, fw_i2cm_execute_t execute, void* attachment);
+  bool  (*read)        (fw_i2cm_handle_t* _this, fw_i2cm_xfer_t* xfer, fw_i2cm_execute_t execute, void* attachment);
   
   struct{
     struct{

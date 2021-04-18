@@ -74,7 +74,7 @@ typedef struct _fw_i2cm_api_t{
 fw_i2cm_api_t name = {                 \
   .FW_API_LINK(profix, init),          \
   .FW_API_LINK(profix, deinit),        \
-  .FW_API_LINK(profix, isEnable)),     \
+  .FW_API_LINK(profix, isEnable),     \
   .FW_API_LINK(profix, write),         \
   .FW_API_LINK(profix, read),          \
   .FW_API_LINK(profix, isBusy),        \

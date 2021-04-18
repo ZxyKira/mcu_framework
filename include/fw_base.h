@@ -50,8 +50,7 @@ inline fw_pin_t fw_pin_init(uint16_t port, uint16_t pin){
 /* *****************************************************************************************
  *    Macro
  */ 
-#define FW_API_LINK(profix, func) .func = profix##_##func
-
+#define FW_API_LINK(profix, func) func = profix##_##func
 
 #define FW_STRUCT_TASK_SCHEDULER(handle)                \
 struct{                                                 \

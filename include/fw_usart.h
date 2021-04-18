@@ -56,12 +56,19 @@ typedef struct _fw_usart_api_t{
 
   struct{
     struct{
-      bool (*enable)   (fw_usart_handle_t* _this, void* schedulerMemory);
-      bool (*disable)  (fw_usart_handle_t* _this);
+      bool     (*enable)    (fw_usart_handle_t* _this, void* schedulerMemory);
+      bool     (*disable)   (fw_usart_handle_t* _this);
     }taskScheduler;
     struct{
-      bool (*enable)   (fw_usart_handle_t* _this, void* buffer, uint32_t bufferSize);
-      bool (*disable)  (fw_usart_handle_t* _this);
+      bool     (*enable)    (fw_usart_handle_t* _this, void* buffer, uint32_t bufferSize);
+      bool     (*disable)   (fw_usart_handle_t* _this);
+      uint32_t (*getCount)  (fw_usart_handle_t* _this);
+      uint32_t (*getFree)   (fw_usart_handle_t* _this);
+      bool     (*flush)     (fw_usart_handle_t* _this);
+    }rungBuffer;
+    struct{
+      bool     (*enable)    (fw_usart_handle_t* _this, void* buffer, uint32_t bufferSize);
+      bool     (*disable)   (fw_usart_handle_t* _this);
     }fifo;
   }support;
 }fw_usart_api_t;

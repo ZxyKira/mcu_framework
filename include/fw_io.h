@@ -57,17 +57,17 @@ typedef struct _fw_io_api_t{
  */ 
 #define FW_IO_API_LINK(profix, name) \
 fw_io_api_t name = {                 \
-  .init     = profix##_init,         \
-  .deinit   = profix##_deinit,       \
-  .read     = profix##_read,         \
-  .set      = profix##_set,          \
-  .clear    = profix##_clear,        \
-  .toggle   = profix##_toggle,       \
-  .dir      = profix##_dir,          \
-  .dirClear = profix##_dirClear,     \
-  .dirSet   = profix##_dirSet,       \
-  .getPin   = profix##_getPin,       \
-  .getFwPin = profix##_getFwPin,     \
+	.FW_API_LINK(profix, init),        \
+	.FW_API_LINK(profix, deinit),      \
+	.FW_API_LINK(profix, read),        \
+	.FW_API_LINK(profix, set),         \
+	.FW_API_LINK(profix, clear),       \
+	.FW_API_LINK(profix, toggle),      \
+	.FW_API_LINK(profix, dir),         \
+	.FW_API_LINK(profix, dirClear),    \
+	.FW_API_LINK(profix, dirSet),      \
+	.FW_API_LINK(profix, getPin),      \
+	.FW_API_LINK(profix, getFwPin),    \
 }
 
 #ifdef __cplusplus

@@ -53,15 +53,15 @@ typedef struct _fw_io_pin_api_t{
  */ 
 #define FW_IO_PIN_API_LINK(profix, name) \
 fw_io_pin_api_t name = {                 \
-  .setValue  = profix##_setValue,        \
-  .setHigh   = profix##_setHigh,         \
-  .setLow    = profix##_setLow,          \
-  .setToggle = profix##_setToggle,       \
-  .setDir    = profix##_setDir,          \
-  .setInput  = profix##_setInput,        \
-  .setOutput = profix##_setOutput,       \
-  .getValue  = profix##_getValue,        \
-  .getDir    = profix##_getDir           \
+  .FW_API_LINK(profix, setValue),        \
+	.FW_API_LINK(profix, setHigh),         \
+	.FW_API_LINK(profix, setLow),          \
+	.FW_API_LINK(profix, setToggle),       \
+	.FW_API_LINK(profix, setDir),          \
+	.FW_API_LINK(profix, setInput),        \
+	.FW_API_LINK(profix, setOutput),       \
+	.FW_API_LINK(profix, getValue),        \
+	.FW_API_LINK(profix, getDir),          \
 }
 
 #ifdef __cplusplus

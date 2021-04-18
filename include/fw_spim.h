@@ -78,7 +78,7 @@ typedef struct _fw_spim_api_t{
 fw_spim_api_t name = {                    \
   .FW_API_LINK(profix, init),             \
   .FW_API_LINK(profix, deinit),           \
-  .FW_API_LINK(profix, isEnable)),        \
+  .FW_API_LINK(profix, isEnable),        \
   .FW_API_LINK(profix, isBusy),           \
   .FW_API_LINK(profix, xfer),             \
   .FW_API_LINK(profix, setCpha),          \

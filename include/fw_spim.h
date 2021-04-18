@@ -66,16 +66,35 @@ typedef struct _fw_spim_api_t{
   bool (*setBaudrate)       (fw_spim_handle_t* _this, uint32_t baudrate);
   
   struct{
-    struct{
-      bool (*enable)   (fw_spim_handle_t* _this, void* schedulerMemory);
-      bool (*disable)  (fw_spim_handle_t* _this);
-    }taskScheduler;
-    struct{
-      bool (*enable)   (fw_spim_handle_t* _this, void* buffer, uint32_t bufferSize);
-      bool (*disable)  (fw_spim_handle_t* _this);
-    }fifo;
+    FW_STRUCT_FIFO(fw_spim_handle_t*) fifo;
+    FW_STRUCT_TASK_SCHEDULER(fw_spim_handle_t*) taskScheduler;
   }support;
 }fw_spim_api_t;
+
+/* *****************************************************************************************
+ *    Macro
+ */ 
+#define FW_SPIM_API_LINK(profix, name)    \
+fw_spim_api_t name = {                    \
+  .FW_API_LINK(profix, init),             \
+  .FW_API_LINK(profix, deinit),           \
+  .FW_API_LINK(profix, isEnable)),        \
+  .FW_API_LINK(profix, isBusy),           \
+  .FW_API_LINK(profix, xfer),             \
+  .FW_API_LINK(profix, setCpha),          \
+  .FW_API_LINK(profix, setCpol),          \
+  .FW_API_LINK(profix, setLsb),           \
+  .FW_API_LINK(profix, setLoop),          \
+  .FW_API_LINK(profix, setPreDelay),      \
+  .FW_API_LINK(profix, setPostDelay),     \
+  .FW_API_LINK(profix, setFrameDelay),    \
+  .FW_API_LINK(profix, setTransferDelay), \
+  .FW_API_LINK(profix, setBaudrate),      \
+  .support = {                            \
+    .FW_SUPPORT_TASK_SCHEDULER_API_LINK(profix, taskScheduler), \
+    .FW_SUPPORT_FIFO_API_LINK(profix, fifo),                    \
+  }                                                             \
+}
 
 #ifdef __cplusplus
 }

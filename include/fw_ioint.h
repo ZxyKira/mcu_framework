@@ -48,14 +48,29 @@ typedef struct _fw_ioint_api_t{
   bool  (*disableRise) (fw_ioint_handle_t* _this);
   bool  (*disableFall) (fw_ioint_handle_t* _this);
   bool  (*disableAll)  (fw_ioint_handle_t* _this);
-  
+
   struct{
-    struct{
-      bool (*enable)   (fw_ioint_handle_t* _this, void* schedulerMemory);
-      bool (*disable)  (fw_ioint_handle_t* _this);
-    }taskScheduler;
+		FW_STRUCT_TASK_SCHEDULER(fw_ioint_handle_t*) taskScheduler;
   }support;
 }fw_ioint_api_t;
+
+/* *****************************************************************************************
+ *    Macro
+ */ 
+#define FW_IOINT_API_LINK(profix, name) \
+fw_ioint_api_t name = {                 \
+  .FW_API_LINK(profix, init),           \
+  .FW_API_LINK(profix, deinit),         \
+  .FW_API_LINK(profix, isEnable),      \
+  .FW_API_LINK(profix, enableRise),     \
+  .FW_API_LINK(profix, enableFall),     \
+  .FW_API_LINK(profix, disableRise),    \
+  .FW_API_LINK(profix, disableFall),    \
+  .FW_API_LINK(profix, disableAll),     \
+  .support = {                          \
+    .FW_SUPPORT_TASK_SCHEDULER_API_LINK(profix, taskScheduler), \
+  }                                                             \
+}
 
 #ifdef __cplusplus
 }

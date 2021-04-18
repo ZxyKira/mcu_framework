@@ -52,6 +52,24 @@ typedef struct _fw_io_api_t{
   fw_io_pin_handle_t (*getFwPin) (fw_io_handle_t* _this, const fw_pin_t* pin);
 }fw_io_api_t;
 
+/* *****************************************************************************************
+ *    Macro
+ */ 
+#define FW_IO_API_LINK(profix, name) \
+fw_io_api_t name = {                 \
+  .init     = profix##_init,         \
+  .deinit   = profix##_deinit,       \
+  .read     = profix##_read,         \
+  .set      = profix##_set,          \
+  .clear    = profix##_clear,        \
+  .toggle   = profix##_toggle,       \
+  .dir      = profix##_dir,          \
+  .dirClear = profix##_dirClear,     \
+  .dirSet   = profix##_dirSet,       \
+  .getPin   = profix##_getPin,       \
+  .getFwPin = profix##_getFwPin,     \
+}
+
 #ifdef __cplusplus
 }
 #endif //__cplusplus

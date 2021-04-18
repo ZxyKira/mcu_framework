@@ -55,23 +55,35 @@ typedef struct _fw_usart_api_t{
   bool  (*isReadBusy)       (fw_usart_handle_t* _this);
 
   struct{
-    struct{
-      bool     (*enable)    (fw_usart_handle_t* _this, void* schedulerMemory);
-      bool     (*disable)   (fw_usart_handle_t* _this);
-    }taskScheduler;
-    struct{
-      bool     (*enable)    (fw_usart_handle_t* _this, void* buffer, uint32_t bufferSize);
-      bool     (*disable)   (fw_usart_handle_t* _this);
-      uint32_t (*getCount)  (fw_usart_handle_t* _this);
-      uint32_t (*getFree)   (fw_usart_handle_t* _this);
-      bool     (*flush)     (fw_usart_handle_t* _this);
-    }rungBuffer;
-    struct{
-      bool     (*enable)    (fw_usart_handle_t* _this, void* buffer, uint32_t bufferSize);
-      bool     (*disable)   (fw_usart_handle_t* _this);
-    }fifo;
+    FW_STRUCT_FIFO(fw_usart_handle_t*) fifo;
+    FW_STRUCT_RING_BUFFER(fw_usart_handle_t*) ringBuffer;
+    FW_STRUCT_TASK_SCHEDULER(fw_usart_handle_t*) taskScheduler;
   }support;
 }fw_usart_api_t;
+
+/* *****************************************************************************************
+ *    Macro
+ */ 
+#define FW_USART_API_LINK(profix, name) \
+fw_usart_api_t name = {                 \
+  .FW_API_LINK(profix, init),           \
+  .FW_API_LINK(profix, deinit),         \
+  .FW_API_LINK(profix, isEnable),       \
+  .FW_API_LINK(profix, send),           \
+  .FW_API_LINK(profix, sendByte),       \
+  .FW_API_LINK(profix, read),           \
+  .FW_API_LINK(profix, readByte),       \
+  .FW_API_LINK(profix, setBaudrate),    \
+  .FW_API_LINK(profix, isSendBusy),     \
+  .FW_API_LINK(profix, isReadBusy),     \
+  .FW_API_LINK(profix, abortSend),      \
+  .FW_API_LINK(profix, abortRead),      \
+  .support = {                          \
+    .FW_SUPPORT_TASK_SCHEDULER_API_LINK(profix, taskScheduler), \
+    .FW_SUPPORT_RING_BUFFER_API_LINK(profix, ringBuffer),       \
+    .FW_SUPPORT_FIFO_API_LINK(profix, fifo),                    \
+  },                                                            \
+}
 
 #ifdef __cplusplus
 }

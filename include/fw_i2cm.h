@@ -62,16 +62,27 @@ typedef struct _fw_i2cm_api_t{
   bool  (*isBusy)      (fw_i2cm_handle_t* _this);
   
   struct{
-    struct{
-      bool (*enable)   (fw_i2cm_handle_t* _this, void* schedulerMemory);
-      bool (*disable)  (fw_i2cm_handle_t* _this);
-    }taskScheduler;
-    struct{
-      bool (*enable)   (fw_i2cm_handle_t* _this, void* buffer, uint32_t bufferSize);
-      bool (*disable)  (fw_i2cm_handle_t* _this);
-    }fifo;
+    FW_STRUCT_TASK_SCHEDULER(fw_i2cm_handle_t*) taskScheduler;
+    FW_STRUCT_FIFO(fw_i2cm_handle_t*) fifo;
   }support;
 }fw_i2cm_api_t;
+
+/* *****************************************************************************************
+ *    Macro
+ */ 
+#define FW_I2CM_API_LINK(profix, name) \
+fw_i2cm_api_t name = {                 \
+  .FW_API_LINK(profix, init),          \
+  .FW_API_LINK(profix, deinit),        \
+  .FW_API_LINK(profix, isEnable)),     \
+  .FW_API_LINK(profix, write),         \
+  .FW_API_LINK(profix, read),          \
+  .FW_API_LINK(profix, isBusy),        \
+  .support = {                         \
+    .FW_SUPPORT_TASK_SCHEDULER_API_LINK(profix, taskScheduler), \
+    .FW_SUPPORT_FIFO_API_LINK(profix, fifo),                    \
+  }                                                             \
+}
 
 #ifdef __cplusplus
 }

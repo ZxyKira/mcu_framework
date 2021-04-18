@@ -48,6 +48,22 @@ typedef struct _fw_io_pin_api_t{
   bool (*getDir)    (fw_io_pin_handle_t* _this);
 }fw_io_pin_api_t;
 
+/* *****************************************************************************************
+ *    Macro
+ */ 
+#define FW_IO_PIN_API_LINK(profix, name) \
+fw_io_pin_api_t name = {                 \
+  .setValue  = profix##_setValue,        \
+  .setHigh   = profix##_setHigh,         \
+  .setLow    = profix##_setLow,          \
+  .setToggle = profix##_setToggle,       \
+  .setDir    = profix##_setDir,          \
+  .setInput  = profix##_setInput,        \
+  .setOutput = profix##_setOutput,       \
+  .getValue  = profix##_getValue,        \
+  .getDir    = profix##_getDir           \
+}
+
 #ifdef __cplusplus
 }
 #endif //__cplusplus

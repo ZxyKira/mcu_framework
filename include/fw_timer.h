@@ -48,12 +48,24 @@ typedef struct _fw_timer_api_t{
   bool  (*stop)             (fw_timer_handle_t* _this);
   
   struct{
-    struct{
-      bool (*enable)   (fw_timer_handle_t* _this, void* schedulerMemory);
-      bool (*disable)  (fw_timer_handle_t* _this);
-    }taskScheduler;
+		FW_STRUCT_TASK_SCHEDULER(fw_timer_handle_t*) taskScheduler;
   }support;
 }fw_timer_api_t;
+
+/* *****************************************************************************************
+ *    Macro
+ */ 
+#define FW_TIMER_API_LINK(profix, name) \
+fw_timer_api_t name = {                 \
+	.FW_API_LINK(profix, init),           \
+	.FW_API_LINK(profix, deinit),         \
+	.FW_API_LINK(profix, startAtTick),    \
+	.FW_API_LINK(profix, startAtTime),    \
+	.FW_API_LINK(profix, stop),           \
+  .support = {                                                  \
+    .FW_SUPPORT_TASK_SCHEDULER_API_LINK(profix, taskScheduler), \
+  },                                                            \
+}
 
 #ifdef __cplusplus
 }

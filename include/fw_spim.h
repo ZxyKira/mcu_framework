@@ -1,55 +1,96 @@
 /* *****************************************************************************************
- *    File Name   :fw_spi.h
+ *    File Name   :fw_spim.h
  *    Create Date :2020-08-13
- *    Modufy Date :2021-04-16
+ *    Modufy Date :2021-04-25
  *    Information :
  */
- 
-#ifndef fw_spim_entity_H_
-#define fw_spim_entity_H_
 
+#ifndef FW_SPIM_VERSION
 #ifdef __cplusplus
 extern "C"{
 #endif //__cplusplus
 
+/* *****************************************************************************************
+ *    Include
+ */ 
 #include <stdint.h>
 #include <stdbool.h>
 
 #include "fw_base.h"
+#include "version.h"
+
+
 
 /* *****************************************************************************************
- *    Type define list
+ *    Macro
  */ 
-typedef struct _fw_spim_api_t fw_spim_api_t;
+
+/*----------------------------------------
+ *  FW_ADC_REQ_FW_ADC_CHANNEL_VERSION
+ *----------------------------------------*/
+#define FW_ADC_REQ_FW_BASE_VERSION VERSION_DEFINEE(1,0,0)
+#if VERSION_CHECK_COMPATIBLE(FW_BASE_VERSION, FW_ADC_REQ_FW_BASE_VERSION)
+  #if VERSION_CHECK_COMPATIBLE(FW_BASE_VERSION, FW_ADC_REQ_FW_BASE_VERSION) == 2
+      #error "FW_BASE_VERSION under 1.0.x"
+  #else
+    #warning "FW_BASE_VERSION revision under 1.0.0"
+  #endif
+#endif
+
+
+
+/*----------------------------------------
+ *  FW_SPIM_VERSION
+ *----------------------------------------*/
+#define FW_SPIM_VERSION VERSION_DEFINEE(1, 0, 0)
+
+
+
+/*----------------------------------------
+ *  FW_SPIM_API_LINK
+ *----------------------------------------*/
+#define FW_SPIM_API_LINK(profix)      \
+{                                     \
+  .FW_API_LINK(profix, init),         \
+  .FW_API_LINK(profix, deinit),       \
+  .FW_API_LINK(profix, isEnable),     \
+  .FW_API_LINK(profix, isBusy),       \
+  .FW_API_LINK(profix, xfer),         \
+  .FW_API_LINK(profix, setCpha),      \
+  .FW_API_LINK(profix, setCpol),      \
+  .FW_API_LINK(profix, setLsb),       \
+  .FW_API_LINK(profix, setBaudrate),  \
+  .support = {                        \
+    .taskScheduler = FW_SUPPORT_TASK_SCHEDULER_API_LINK(profix), \
+    .fifo = FW_SUPPORT_FIFO_API_LINK(profix),                    \
+  }                                                              \
+}
+
+
+
+/* *****************************************************************************************
+ *    Typedef List
+ */ 
 typedef struct _fw_spim_handle_t fw_spim_handle_t;
 typedef struct _fw_spim_xfer_t fw_spim_xfer_t;
 
+
+
 /* *****************************************************************************************
- *    Function Type
+ *    Typedef Function
  */ 
 typedef void (*fw_spim_event_xfer_t)(fw_spim_handle_t* _this, fw_spim_xfer_t *xfer, void* attachment);
 
-/* *****************************************************************************************
- *    Struct - fw_usart_handle_t
- */ 
-typedef struct _fw_spim_handle_t{
-  void* memory;
-  const fw_spim_api_t* api;
-}fw_spim_handle_t;
+
 
 /* *****************************************************************************************
- *    Struct - fw_spim_xfer_t
+ *    Struct/Union/Enum
  */ 
-typedef struct _fw_spim_xfer_t{
-  uint8_t *txData;      /*!< Send buffer */
-  uint8_t *rxData;      /*!< Receive buffer */
-  uint32_t dataSize;    /*!< Transfer bytes */
-}fw_spim_xfer_t;
-
-/* *****************************************************************************************
- *    Struct - fw_spim_api_t
- */ 
-typedef struct _fw_spim_api_t{
+ 
+/*----------------------------------------
+ *  fw_spim_api_t
+ *----------------------------------------*/
+struct fw_spim_api_t{
   bool (*init)              (fw_spim_handle_t* _this);
   bool (*deinit)            (fw_spim_handle_t* _this);  
   bool (*isEnable)          (fw_spim_handle_t* _this);
@@ -58,48 +99,50 @@ typedef struct _fw_spim_api_t{
   bool (*setCpha)           (fw_spim_handle_t* _this, bool enable);
   bool (*setCpol)           (fw_spim_handle_t* _this, bool enable);
   bool (*setLsb)            (fw_spim_handle_t* _this, bool enable);
-  bool (*setLoop)           (fw_spim_handle_t* _this, bool enable);
-  bool (*setPreDelay)       (fw_spim_handle_t* _this, uint8_t val);
-  bool (*setPostDelay)      (fw_spim_handle_t* _this, uint8_t val);
-  bool (*setFrameDelay)     (fw_spim_handle_t* _this, uint8_t val);
-  bool (*setTransferDelay)  (fw_spim_handle_t* _this, uint8_t val);
   bool (*setBaudrate)       (fw_spim_handle_t* _this, uint32_t baudrate);
   
   struct{
     FW_STRUCT_FIFO(fw_spim_handle_t*) fifo;
     FW_STRUCT_TASK_SCHEDULER(fw_spim_handle_t*) taskScheduler;
   }support;
-}fw_spim_api_t;
+};
+
+
 
 /* *****************************************************************************************
- *    Macro
+ *    Typedef Struct/Union/Enum
  */ 
-#define FW_SPIM_API_LINK(profix, name)    \
-fw_spim_api_t name = {                    \
-  .FW_API_LINK(profix, init),             \
-  .FW_API_LINK(profix, deinit),           \
-  .FW_API_LINK(profix, isEnable),        \
-  .FW_API_LINK(profix, isBusy),           \
-  .FW_API_LINK(profix, xfer),             \
-  .FW_API_LINK(profix, setCpha),          \
-  .FW_API_LINK(profix, setCpol),          \
-  .FW_API_LINK(profix, setLsb),           \
-  .FW_API_LINK(profix, setLoop),          \
-  .FW_API_LINK(profix, setPreDelay),      \
-  .FW_API_LINK(profix, setPostDelay),     \
-  .FW_API_LINK(profix, setFrameDelay),    \
-  .FW_API_LINK(profix, setTransferDelay), \
-  .FW_API_LINK(profix, setBaudrate),      \
-  .support = {                            \
-    .FW_SUPPORT_TASK_SCHEDULER_API_LINK(profix, taskScheduler), \
-    .FW_SUPPORT_FIFO_API_LINK(profix, fifo),                    \
-  }                                                             \
-}
+ 
+/*----------------------------------------
+ *  fw_spim_handle_t
+ *----------------------------------------*/
+typedef struct _fw_spim_handle_t{
+  void* memory;
+  const struct fw_spim_api_t* api;
+}fw_spim_handle_t;
+
+
+
+/*----------------------------------------
+ *  fw_spim_xfer_t
+ *----------------------------------------*/
+typedef struct _fw_spim_xfer_t{
+  uint8_t *txData;      /*!< Send buffer */
+  uint8_t *rxData;      /*!< Receive buffer */
+  uint32_t dataSize;    /*!< Transfer bytes */
+}fw_spim_xfer_t;
+
+
+
+/* *****************************************************************************************
+ *    Inline Function
+ */
+
 
 #ifdef __cplusplus
 }
 #endif //__cplusplus
-#endif //fw_spim_entity_H_
+#endif //FW_SPIM_VERSION
 /* *****************************************************************************************
  *    End of file
  */

@@ -1,11 +1,11 @@
 /* *****************************************************************************************
- *    File Name   :fw_timer.h
- *    Create Date :2021-03-16
+ *    File Name   :fw_adc_channel.h
+ *    Create Date :2021-04-24
  *    Modufy Date :2021-04-25
  *    Information :
  */
- 
-#ifndef FW_TIMER_VERSION
+
+#ifndef FW_ADC_CHANNEL_VERSION
 #ifdef __cplusplus
 extern "C"{
 #endif //__cplusplus
@@ -13,8 +13,8 @@ extern "C"{
 /* *****************************************************************************************
  *    Include
  */ 
-#include <stdbool.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 #include "fw_base.h"
 #include "version.h"
@@ -40,25 +40,20 @@ extern "C"{
 
 
 /*----------------------------------------
- *  FW_TIMER_VERSION
+ *  FW_ADC_CHANNEL_VERSION
  *----------------------------------------*/
-#define FW_TIMER_VERSION VERSION_DEFINEE(1, 0, 0)
+#define FW_ADC_CHANNEL_VERSION VERSION_DEFINEE(1, 0, 0)
 
 
 
 /*----------------------------------------
- *  FW_TIMER_API_LINK
+ *  FW_ADC_PIN_API_LINK
  *----------------------------------------*/
-#define FW_TIMER_API_LINK(profix)    \
-{                                    \
-  .FW_API_LINK(profix, init),        \
-  .FW_API_LINK(profix, deinit),      \
-  .FW_API_LINK(profix, startAtTick), \
-  .FW_API_LINK(profix, startAtTime), \
-  .FW_API_LINK(profix, stop),        \
-  .support = {                       \
-    .taskScheduler = FW_SUPPORT_TASK_SCHEDULER_API_LINK(profix), \
-  },                                                             \
+#define FW_ADC_CHANNEL_API_LINK(profix, name) \
+{                                             \
+  .FW_API_LINK(profix, enable),               \
+  .FW_API_LINK(profix, disable),              \
+  .FW_API_LINK(profix, value),                \
 }
 
 
@@ -66,35 +61,21 @@ extern "C"{
 /* *****************************************************************************************
  *    Typedef List
  */ 
-typedef struct _fw_timer_handle_t fw_timer_handle_t;
-
-
-
-/* *****************************************************************************************
- *    Typedef Function
- */ 
-typedef void (*fw_timer_event_execute_t)(fw_timer_handle_t* _this, void* attachment);
+typedef struct _fw_adc_pin_handle_t fw_adc_pin_handle_t;
 
 
 
 /* *****************************************************************************************
  *    Struct/Union/Enum
  */ 
- 
+
 /*----------------------------------------
- *  fw_timer_api_t
+ *  fw_adc_api_t
  *----------------------------------------*/
-struct fw_timer_api_t{
-  bool  (*init)             (fw_timer_handle_t* _this);
-  bool  (*deinit)           (fw_timer_handle_t* _this);
-  bool  (*isEnable)         (fw_timer_handle_t* _this);
-  bool  (*startAtTick)      (fw_timer_handle_t* _this, uint32_t tick, fw_timer_event_execute_t execute, void* attachment);
-  bool  (*startAtTime)      (fw_timer_handle_t* _this, uint32_t us, fw_timer_event_execute_t execute, void* attachment);
-  bool  (*stop)             (fw_timer_handle_t* _this);
-  
-  struct{
-    FW_STRUCT_TASK_SCHEDULER(fw_timer_handle_t*) taskScheduler;
-  }support;
+struct fw_adc_pin_api_t{
+  bool               (*enable)   (fw_adc_pin_handle_t* _this);
+  bool               (*disable)  (fw_adc_pin_handle_t* _this);
+  uint32_t           (*value)    (fw_adc_pin_handle_t* _this);
 };
 
 
@@ -104,13 +85,13 @@ struct fw_timer_api_t{
  */ 
 
 /*----------------------------------------
- *  fw_timer_handle_t
+ *  fw_adc_pin_handle_t
  *----------------------------------------*/
-typedef struct _fw_timer_handle_t{
+typedef struct _fw_adc_pin_handle_t{
   void* memory;
-  const struct fw_timer_api_t* api;
-}fw_timer_handle_t; 
- 
+  const struct fw_adc_api_t* api;
+}fw_adc_pin_handle_t;
+
 
 
 /* *****************************************************************************************
@@ -122,7 +103,7 @@ typedef struct _fw_timer_handle_t{
 #ifdef __cplusplus
 }
 #endif //__cplusplus
-#endif //FW_TIMER_VERSION
+#endif //FW_ADC_CHANNEL_VERSION
 /* *****************************************************************************************
  *    End of file
  */ 

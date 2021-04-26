@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\code\inc</IncludePath>
+              <IncludePath>..\include;..\import</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -436,10 +436,15 @@
               <FileType>5</FileType>
               <FilePath>..\include\fw_i2cm.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>import</GroupName>
+          <Files>
             <File>
               <FileName>version.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\version.h</FilePath>
+              <FilePath>..\import\version.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -452,5 +457,14 @@
     <components/>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>framework</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

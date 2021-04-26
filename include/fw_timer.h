@@ -53,6 +53,7 @@ extern "C"{
 {                                    \
   .FW_API_LINK(profix, init),        \
   .FW_API_LINK(profix, deinit),      \
+  .FW_API_LINK(profix, isEnable),    \
   .FW_API_LINK(profix, startAtTick), \
   .FW_API_LINK(profix, startAtTime), \
   .FW_API_LINK(profix, stop),        \

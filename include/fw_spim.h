@@ -42,7 +42,7 @@ extern "C"{
 /*----------------------------------------
  *  FW_SPIM_VERSION
  *----------------------------------------*/
-#define FW_SPIM_VERSION VERSION_DEFINEE(1, 0, 0)
+#define FW_SPIM_VERSION VERSION_DEFINEE(1, 1, 0)
 
 
 
@@ -56,6 +56,7 @@ extern "C"{
   .FW_API_LINK(profix, isEnable),     \
   .FW_API_LINK(profix, isBusy),       \
   .FW_API_LINK(profix, xfer),         \
+  .FW_API_LINK(profix, xferSync),     \
   .FW_API_LINK(profix, setCpha),      \
   .FW_API_LINK(profix, setCpol),      \
   .FW_API_LINK(profix, setLsb),       \
@@ -96,6 +97,7 @@ struct fw_spim_api_t{
   bool (*isEnable)          (fw_spim_handle_t* _this);
   bool (*isBusy)            (fw_spim_handle_t* _this);
   bool (*xfer)              (fw_spim_handle_t* _this, fw_spim_xfer_t *xfer, fw_spim_event_xfer_t execute, void* attachment);
+	bool (*xferSync)          (fw_spim_handle_t* _this, fw_spim_xfer_t *xfer);
   bool (*setCpha)           (fw_spim_handle_t* _this, bool enable);
   bool (*setCpol)           (fw_spim_handle_t* _this, bool enable);
   bool (*setLsb)            (fw_spim_handle_t* _this, bool enable);

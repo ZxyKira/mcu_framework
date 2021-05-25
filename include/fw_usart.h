@@ -41,7 +41,7 @@ extern "C"{
 /*----------------------------------------
  *  FW_USART_VERSION
  *----------------------------------------*/
-#define FW_USART_VERSION VERSION_DEFINEE(1, 0, 0)
+#define FW_USART_VERSION VERSION_DEFINEE(1, 1, 0)
 
 
 
@@ -54,8 +54,10 @@ extern "C"{
   .FW_API_LINK(profix, deinit),      \
   .FW_API_LINK(profix, isEnable),    \
   .FW_API_LINK(profix, send),        \
+  .FW_API_LINK(profix, sendSync),    \
   .FW_API_LINK(profix, sendByte),    \
   .FW_API_LINK(profix, read),        \
+  .FW_API_LINK(profix, readSync),    \
   .FW_API_LINK(profix, readByte),    \
   .FW_API_LINK(profix, setBaudrate), \
   .FW_API_LINK(profix, isSendBusy),  \
@@ -108,8 +110,10 @@ struct fw_usart_api_t{
   bool  (*deinit)           (fw_usart_handle_t* _this);
   bool  (*isEnable)         (fw_usart_handle_t* _this);
   bool  (*send)             (fw_usart_handle_t* _this, fw_memory_t* data, fw_usart_event_send_t execute, void* attachment);
+  bool  (*sendSync)         (fw_usart_handle_t* _this, fw_memory_t* data);
   bool  (*sendByte)         (fw_usart_handle_t* _this, uint8_t data);
   bool  (*read)             (fw_usart_handle_t* _this, fw_memory_t* buffer, fw_usart_event_read_t execute, void* attachment);
+  bool  (*readSync)         (fw_usart_handle_t* _this, fw_memory_t* buffer);
   bool  (*readByte)         (fw_usart_handle_t* _this, uint8_t* buffer);
   bool  (*abortSend)        (fw_usart_handle_t* _this);
   bool  (*abortRead)        (fw_usart_handle_t* _this);

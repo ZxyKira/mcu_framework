@@ -104,6 +104,10 @@ struct{                                                               \
   bool (*disable) (handle _this);                                     \
 }
 
+struct _fw_support_fifo_t{
+	bool (*enable)  (void* _this, void* buffer, uint32_t bufferSize);
+  bool (*disable) (void* _this);
+}fw_support_fifo_t;
 
 
 /*----------------------------------------

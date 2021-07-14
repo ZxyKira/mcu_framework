@@ -1,15 +1,13 @@
 /* *****************************************************************************************
- *    File Name   :fw_i2cm.h
- *    Create Date :2021-03-16
- *    Modufy Date :2021-07-14
+ *    File Name   :iic.hpp
+ *    Create Date :2021-07-14
+ *    Modufy Date :
  *    Information :
  */
 
-#ifndef fw_i2cm_h_
-#define fw_i2cm_h_
-#ifdef __cplusplus
-extern "C"{
-#endif //__cplusplus
+#ifndef framework_hal_iic_hpp_
+#define framework_hal_iic_hpp_
+
 
 /* *****************************************************************************************
  *    Include
@@ -17,40 +15,43 @@ extern "C"{
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "fw_base.h"
+#include "base.hpp"
+
+namespace framework{ 
+	namespace hal{ 
+		namespace iic{
+			
+			
+			typedef enum {
+				FRAMEWORK_HAL_IIC_SUCCESSFUL,
+				FRAMEWORK_HAL_IIC_NACK,
+			}InterIntegratedCircuitStatus;
+			
+			template <class T, class R>
+			class InterIntegratedCircuitMaster : public framework::hal::base::Base{
+				public: virtual void hash(T* t);
+			};
+			
+			class TT{
+			
+			};
+			
+			
+			//typedef void (*fw_i2cm_execute_t)(InterIntegratedCircuitMaster* _this, InterIntegratedCircuitStatus status, void* attachment);
+
+			
+			void foo(){
+				InterIntegratedCircuitMaster<TT, TT> ff;
+				ff.hash(new TT());
+			}	
+		}
+	}
+}
 
 
-/* *****************************************************************************************
- *    Macro
- */ 
 
 
-/* *****************************************************************************************
- *    Typedef List
- */ 
-typedef struct _fw_i2cm_handle_t fw_i2cm_handle_t;
-typedef struct _fw_i2cm_xfer_t fw_i2cm_xfer_t;
-typedef enum _fw_i2cm_status_t fw_i2cm_status_t;
-
-
-/* *****************************************************************************************
- *    Typedef Function
- */ 
-
-/*----------------------------------------
- *  fw_i2cm_execute_t
- *----------------------------------------*/
-typedef void (*fw_i2cm_execute_t)(fw_i2cm_handle_t* _this, fw_i2cm_status_t status, fw_i2cm_xfer_t* xfer ,void* attachment);
-
-
-
-/* *****************************************************************************************
- *    Struct/Union/Enum
- */
-
-/*----------------------------------------
- *  fw_i2cm_api_t
- *----------------------------------------*/
+	
 struct fw_i2cm_api_t{
   bool  (*init)        (fw_i2cm_handle_t* _this);
   bool  (*deinit)      (fw_i2cm_handle_t* _this);
@@ -77,10 +78,7 @@ typedef struct _fw_i2cm_handle_t{
 /*----------------------------------------
  *  fw_i2cm_status_t
  *----------------------------------------*/
-typedef enum _fw_i2cm_status_t{
-  fw_i2cm_status_successful,
-  fw_i2cm_status_nack,
-}fw_i2cm_status_t;
+
  
 
 /*----------------------------------------
@@ -99,10 +97,8 @@ typedef struct _fw_i2cm_xfer_t{
  */ 
 
 
-#ifdef __cplusplus
-}
-#endif //__cplusplus
-#endif //fw_i2cm_h_
+
+#endif //framework_hal_iic_hpp_
 /* *****************************************************************************************
  *    End of file
  */ 

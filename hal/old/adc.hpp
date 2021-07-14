@@ -1,15 +1,13 @@
 /* *****************************************************************************************
- *    File Name   :fw_adc_channel.h
- *    Create Date :2021-04-24
- *    Modufy Date :2021-07-14
+ *    File Name   :fw_adc.hpp
+ *    Create Date :2021-07-01
+ *    Modufy Date :
  *    Information :
  */
 
-#ifndef fw_adc_channel_h_
-#define fw_adc_channel_h_
-#ifdef __cplusplus
-extern "C"{
-#endif //__cplusplus
+#ifndef fw_adc_hpp_
+#define fw_adc_hpp_
+
 
 /* *****************************************************************************************
  *    Include
@@ -17,8 +15,7 @@ extern "C"{
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "fw_base.h"
-
+#include "base.hpp"
 
 /* *****************************************************************************************
  *    Macro
@@ -27,37 +24,38 @@ extern "C"{
 /* *****************************************************************************************
  *    Typedef List
  */ 
-typedef struct _fw_adc_pin_handle_t fw_adc_pin_handle_t;
-
-
 
 /* *****************************************************************************************
  *    Struct/Union/Enum
  */ 
 
-/*----------------------------------------
- *  fw_adc_api_t
- *----------------------------------------*/
-struct fw_adc_pin_api_t{
-  bool               (*enable)   (fw_adc_pin_handle_t* _this);
-  bool               (*disable)  (fw_adc_pin_handle_t* _this);
-  uint32_t           (*value)    (fw_adc_pin_handle_t* _this);
-};
-
+namespace framework{
+	namespace hal{
+		namespace adc{
+			
+			class AnalogDigitalConverterChannel{
+				public: virtual bool enable(void);
+				public: virtual bool disable(void);
+				public: virtual bool read(void);
+			};
+			
+			
+			class AnalogDigitalConverter : public framework::hal::base::Base{
+				public: virtual bool enableChannel(uint32_t channel);
+				public: virtual bool disableChannel(uint32_t channel);
+				public: virtual uint32_t read(uint32_t channel);
+				public: virtual AnalogDigitalConverterChannel getChannel(uint32_t channel);
+			};
+			
+			
+		}
+	}
+}
 
 
 /* *****************************************************************************************
  *    Typedef Struct/Union/Enum
  */ 
-
-/*----------------------------------------
- *  fw_adc_pin_handle_t
- *----------------------------------------*/
-typedef struct _fw_adc_pin_handle_t{
-  void* memory;
-  const struct fw_adc_api_t* api;
-}fw_adc_pin_handle_t;
-
 
 
 /* *****************************************************************************************
@@ -65,11 +63,7 @@ typedef struct _fw_adc_pin_handle_t{
  */ 
 
 
-
-#ifdef __cplusplus
-}
-#endif //__cplusplus
-#endif //fw_adc_channel_h_
+#endif //fw_adc_hpp_
 /* *****************************************************************************************
  *    End of file
  */ 

@@ -1,23 +1,19 @@
 /* *****************************************************************************************
- *    File Name   :framework.h
+ *    File Name   :io.h
  *    Create Date :2021-07-14
  *    Modufy Date :
  *    Information :
  */
 
-#ifndef framework_h_
-#define framework_h_
+#ifndef framework_io_h_
+#define framework_io_h_
 
-#include "hal\hal.h"
-#include "lang\lang.h"
-#include "util\util.h"
-#include "io\io.h"
+#include "InputStream.hpp"
+#include "OutputStream.hpp"
 
 
 
-
-
-#endif //framework_h_
+#endif //framework_io_h_
 /* *****************************************************************************************
  *    End of file
  */ 

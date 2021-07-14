@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\include;..\import</IncludePath>
+              <IncludePath>..\</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -381,90 +381,157 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>source</GroupName>
-        </Group>
-        <Group>
           <GroupName>include</GroupName>
           <Files>
             <File>
-              <FileName>fw_base.h</FileName>
+              <FileName>framework.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_base.h</FilePath>
+              <FilePath>..\framework.h</FilePath>
             </File>
             <File>
-              <FileName>fw_adc.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_adc.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_adc_channel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_adc_channel.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_io_pin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_io_pin.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_io.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_io.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_spim.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_spim.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_usart.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_usart.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_ioint.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_ioint.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_i2cm.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_i2cm.h</FilePath>
+              <FileName>test.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\test.cpp</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>include_hpp</GroupName>
+          <GroupName>hal</GroupName>
           <Files>
             <File>
-              <FileName>fw_base.hpp</FileName>
+              <FileName>AnalogDigitalConverter.hpp</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_base.hpp</FilePath>
+              <FilePath>..\hal\AnalogDigitalConverter.hpp</FilePath>
             </File>
             <File>
-              <FileName>fw_io.hpp</FileName>
+              <FileName>AnalogDigitalConverterChannel.hpp</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_io.hpp</FilePath>
+              <FilePath>..\hal\AnalogDigitalConverterChannel.hpp</FilePath>
             </File>
             <File>
-              <FileName>fw_timer.hpp</FileName>
+              <FileName>Base.hpp</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_timer.hpp</FilePath>
+              <FilePath>..\hal\Base.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposeIO.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\hal\GeneralPurposeIO.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposePin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\hal\GeneralPurposePin.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\hal\hal.h</FilePath>
+            </File>
+            <File>
+              <FileName>Pin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\hal\Pin.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\hal\Timer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PinEdgeTrigger.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\hal\PinEdgeTrigger.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>InterIntegratedCircuit.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\hal\InterIntegratedCircuit.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeripheral.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\hal\SerialPeripheral.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeripheralSlot.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\hal\SerialPeripheralSlot.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPort.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\hal\SerialPort.hpp</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>import</GroupName>
+          <GroupName>lang</GroupName>
           <Files>
             <File>
-              <FileName>version.h</FileName>
+              <FileName>Integer.hpp</FileName>
               <FileType>5</FileType>
-              <FilePath>..\import\version.h</FilePath>
+              <FilePath>..\lang\Integer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Object.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\lang\Object.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>lang.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\lang\lang.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>util</GroupName>
+          <Files>
+            <File>
+              <FileName>Executor.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\util\Executor.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Scanner.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\util\Scanner.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>TimerTask.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\util\TimerTask.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>TimerScheduler.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\util\TimerScheduler.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\util\util.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>io</GroupName>
+          <Files>
+            <File>
+              <FileName>InputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\io\InputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\io\OutputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>io.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\io\io.h</FilePath>
             </File>
           </Files>
         </Group>

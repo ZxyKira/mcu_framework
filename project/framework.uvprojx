@@ -387,84 +387,59 @@
           <GroupName>include</GroupName>
           <Files>
             <File>
-              <FileName>fw_base.h</FileName>
+              <FileName>framework.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_base.h</FilePath>
+              <FilePath>..\framework.h</FilePath>
             </File>
             <File>
               <FileName>fw_adc.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_adc.h</FilePath>
+              <FilePath>..\fw_adc.h</FilePath>
             </File>
             <File>
               <FileName>fw_adc_channel.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_adc_channel.h</FilePath>
+              <FilePath>..\fw_adc_channel.h</FilePath>
             </File>
             <File>
-              <FileName>fw_io_pin.h</FileName>
+              <FileName>fw_base.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_io_pin.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_io.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_io.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_spim.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_spim.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_usart.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_usart.h</FilePath>
-            </File>
-            <File>
-              <FileName>fw_ioint.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_ioint.h</FilePath>
+              <FilePath>..\fw_base.h</FilePath>
             </File>
             <File>
               <FileName>fw_i2cm.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_i2cm.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>include_hpp</GroupName>
-          <Files>
-            <File>
-              <FileName>fw_base.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\fw_base.hpp</FilePath>
+              <FilePath>..\fw_i2cm.h</FilePath>
             </File>
             <File>
-              <FileName>fw_io.hpp</FileName>
+              <FileName>fw_io.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_io.hpp</FilePath>
+              <FilePath>..\fw_io.h</FilePath>
             </File>
             <File>
-              <FileName>fw_timer.hpp</FileName>
+              <FileName>fw_io_pin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include\fw_timer.hpp</FilePath>
+              <FilePath>..\fw_io_pin.h</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>import</GroupName>
-          <Files>
             <File>
-              <FileName>version.h</FileName>
+              <FileName>fw_ioint.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\import\version.h</FilePath>
+              <FilePath>..\fw_ioint.h</FilePath>
+            </File>
+            <File>
+              <FileName>fw_spim.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\fw_spim.h</FilePath>
+            </File>
+            <File>
+              <FileName>fw_timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\fw_timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>fw_usart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\fw_usart.h</FilePath>
             </File>
           </Files>
         </Group>

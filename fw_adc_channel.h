@@ -1,11 +1,12 @@
 /* *****************************************************************************************
  *    File Name   :fw_adc_channel.h
  *    Create Date :2021-04-24
- *    Modufy Date :2021-04-25
+ *    Modufy Date :2021-07-14
  *    Information :
  */
 
-#ifndef FW_ADC_CHANNEL_VERSION
+#ifndef fw_adc_channel_h_
+#define fw_adc_channel_h_
 #ifdef __cplusplus
 extern "C"{
 #endif //__cplusplus
@@ -17,46 +18,11 @@ extern "C"{
 #include <stdbool.h>
 
 #include "fw_base.h"
-#include "version.h"
-
 
 
 /* *****************************************************************************************
  *    Macro
  */ 
-
-/*----------------------------------------
- *  FW_ADC_REQ_FW_ADC_CHANNEL_VERSION
- *----------------------------------------*/
-#define FW_ADC_REQ_FW_BASE_VERSION VERSION_DEFINEE(1,0,0)
-#if VERSION_CHECK_COMPATIBLE(FW_BASE_VERSION, FW_ADC_REQ_FW_BASE_VERSION)
-  #if VERSION_CHECK_COMPATIBLE(FW_BASE_VERSION, FW_ADC_REQ_FW_BASE_VERSION) == 2
-      #error "FW_BASE_VERSION under 1.0.x"
-  #else
-    #warning "FW_BASE_VERSION revision under 1.0.0"
-  #endif
-#endif
-
-
-
-/*----------------------------------------
- *  FW_ADC_CHANNEL_VERSION
- *----------------------------------------*/
-#define FW_ADC_CHANNEL_VERSION VERSION_DEFINEE(1, 0, 0)
-
-
-
-/*----------------------------------------
- *  FW_ADC_PIN_API_LINK
- *----------------------------------------*/
-#define FW_ADC_CHANNEL_API_LINK(profix, name) \
-{                                             \
-  .FW_API_LINK(profix, enable),               \
-  .FW_API_LINK(profix, disable),              \
-  .FW_API_LINK(profix, value),                \
-}
-
-
 
 /* *****************************************************************************************
  *    Typedef List
@@ -103,7 +69,7 @@ typedef struct _fw_adc_pin_handle_t{
 #ifdef __cplusplus
 }
 #endif //__cplusplus
-#endif //FW_ADC_CHANNEL_VERSION
+#endif //fw_adc_channel_h_
 /* *****************************************************************************************
  *    End of file
  */ 

@@ -1,11 +1,12 @@
 /* *****************************************************************************************
  *    File Name   :fw_io.h
  *    Create Date :2020-08-12
- *    Modufy Date :2021-04-25
+ *    Modufy Date :2021-07-14
  *    Information :
  */
 
-#ifndef FW_IO_VERSION
+#ifndef fw_io_h_
+#define fw_io_h_
 #ifdef __cplusplus
 extern "C"{
 #endif //__cplusplus
@@ -20,73 +21,14 @@ extern "C"{
 #include "fw_io_pin.h"
 
 
-
 /* *****************************************************************************************
  *    Macro
  */ 
 
-/*----------------------------------------
- *  FW_ADC_REQ_FW_ADC_CHANNEL_VERSION
- *----------------------------------------*/
-#define FW_ADC_REQ_FW_BASE_VERSION VERSION_DEFINEE(1,0,0)
-#if VERSION_CHECK_COMPATIBLE(FW_BASE_VERSION, FW_ADC_REQ_FW_BASE_VERSION)
-  #if VERSION_CHECK_COMPATIBLE(FW_BASE_VERSION, FW_ADC_REQ_FW_BASE_VERSION) == 2
-      #error "FW_BASE_VERSION under 1.0.x"
-  #else
-    #warning "FW_BASE_VERSION revision under 1.0.0"
-  #endif
-#endif
-
-
-
-/*----------------------------------------
- *  FW_IO_REQ_FW_IO_PIN_VERSION
- *----------------------------------------*/
-#define FW_IO_REQ_FW_IO_PIN_VERSION VERSION_DEFINEE(1,0,0)
-
-#if VERSION_CHECK_COMPATIBLE(FW_IO_PIN_VERSION, FW_IO_REQ_FW_IO_PIN_VERSION)
-  #if VERSION_CHECK_COMPATIBLE(FW_IO_PIN_VERSION, FW_IO_REQ_FW_IO_PIN_VERSION) == 2
-      #error "FW_IO_PIN_VERSION under 1.0.x"
-  #else
-    #warning "FW_IO_PIN_VERSION revision under 1.0.0"
-  #endif
-#endif
-
-
-
-/*----------------------------------------
- *  FW_IO_VERSION
- *----------------------------------------*/
-#define FW_IO_VERSION VERSION_DEFINEE(1, 0, 0)
-
-
-
-/*----------------------------------------
- *  FW_IO_API_LINK
- *----------------------------------------*/
-#define FW_IO_API_LINK(profix)    \
-{                                 \
-  .FW_API_LINK(profix, init),     \
-  .FW_API_LINK(profix, deinit),   \
-  .FW_API_LINK(profix, read),     \
-  .FW_API_LINK(profix, set),      \
-  .FW_API_LINK(profix, clear),    \
-  .FW_API_LINK(profix, toggle),   \
-  .FW_API_LINK(profix, dir),      \
-  .FW_API_LINK(profix, dirClear), \
-  .FW_API_LINK(profix, dirSet),   \
-  .FW_API_LINK(profix, getPin),   \
-  .FW_API_LINK(profix, getFwPin), \
-}
-
-
-
 /* *****************************************************************************************
  *    Typedef List
  */ 
-
 typedef struct _fw_io_handle_t fw_io_handle_t;
-
 
 
 /* *****************************************************************************************
@@ -112,7 +54,6 @@ struct fw_io_api_t{
 };
 
 
-
 /* *****************************************************************************************
  *    Typedef Struct/Union/Enum
  */ 
@@ -134,7 +75,7 @@ typedef struct _fw_io_handle_t{
 #ifdef __cplusplus
 }
 #endif //__cplusplus
-#endif //FW_IO_VERSION
+#endif //fw_io_h_
 /* *****************************************************************************************
  *    End of file
  */ 

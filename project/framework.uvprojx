@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\include;..\import;..\include_hpp</IncludePath>
+              <IncludePath>..\include;..\import</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -444,17 +444,17 @@
             <File>
               <FileName>fw_base.hpp</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include_hpp\fw_base.hpp</FilePath>
+              <FilePath>..\include\fw_base.hpp</FilePath>
             </File>
             <File>
               <FileName>fw_io.hpp</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include_hpp\fw_io.hpp</FilePath>
+              <FilePath>..\include\fw_io.hpp</FilePath>
             </File>
             <File>
               <FileName>fw_timer.hpp</FileName>
               <FileType>5</FileType>
-              <FilePath>..\include_hpp\fw_timer.hpp</FilePath>
+              <FilePath>..\include\fw_timer.hpp</FilePath>
             </File>
           </Files>
         </Group>
